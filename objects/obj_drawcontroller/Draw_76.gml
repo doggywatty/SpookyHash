@@ -1,0 +1,32 @@
+gpu_set_ztestenable(true);
+windowwidth = window_get_width();
+windowheight = window_get_height();
+
+switch (global.scalemode)
+{
+	case scalemodes.fit:
+		appscalex = min(windowwidth / global.currentres[0], windowheight / global.currentres[1]);
+		appscaley = min(windowwidth / global.currentres[0], windowheight / global.currentres[1]);
+		break;
+	case scalemodes.fill:
+		appscalex = windowwidth / global.currentres[0];
+		appscaley = windowheight / global.currentres[1];
+		break;
+	case scalemodes.pixelperfect:
+		appscalex = floor(min(windowwidth / global.currentres[0], windowheight / global.currentres[1]));
+		appscaley = floor(min(windowwidth / global.currentres[0], windowheight / global.currentres[1]));
+		break;
+	case scalemodes.exact:
+		appscalex = 1;
+		appscaley = 1;
+		break;
+}
+
+if (global.scalemode != scalemodes.fill && global.scalemode != scalemodes.exact)
+{
+	if (global.currentres[0] > windowwidth || global.currentres[1] > windowheight)
+	{
+		appscalex = min(windowwidth / global.currentres[0], windowheight / global.currentres[1]);
+		appscaley = min(windowwidth / global.currentres[0], windowheight / global.currentres[1]);
+	}
+}

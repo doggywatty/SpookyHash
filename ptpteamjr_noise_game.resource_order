@@ -1,0 +1,25 @@
+{
+  "FolderOrderSettings": [
+    {"name":"Tileset Sprites","order":16,"path":"folders/Sprites/Tileset Sprites.yy",},
+    {"name":"baldi","order":1,"path":"folders/Sprites/baldi.yy",},
+    {"name":"camlocks","order":2,"path":"folders/Sprites/camlocks.yy",},
+    {"name":"conceptart","order":3,"path":"folders/Sprites/conceptart.yy",},
+    {"name":"crates","order":4,"path":"folders/Sprites/crates.yy",},
+    {"name":"dev","order":5,"path":"folders/Sprites/dev.yy",},
+    {"name":"effectsandparticles","order":6,"path":"folders/Sprites/effectsandparticles.yy",},
+    {"name":"enemies","order":7,"path":"folders/Sprites/enemies.yy",},
+    {"name":"geometry","order":8,"path":"folders/Sprites/geometry.yy",},
+    {"name":"hud","order":9,"path":"folders/Sprites/hud.yy",},
+    {"name":"interactables","order":10,"path":"folders/Sprites/interactables.yy",},
+    {"name":"pickups","order":11,"path":"folders/Sprites/pickups.yy",},
+    {"name":"player","order":12,"path":"folders/Sprites/player.yy",},
+    {"name":"texture3d","order":13,"path":"folders/Sprites/texture3d.yy",},
+    {"name":"texture3ddeath","order":14,"path":"folders/Sprites/texture3ddeath.yy",},
+    {"name":"ui","order":15,"path":"folders/Sprites/ui.yy",},
+    {"name":"Internal","order":1,"path":"folders/Extensions/GMLive/Internal.yy",},
+    {"name":"Misc","order":1,"path":"folders/Extensions/GMLive/Internal/Misc.yy",},
+  ],
+  "ResourceOrderSettings": [
+    {"name":"GMLiveAPI","order":1,"path":"scripts/GMLiveAPI/GMLiveAPI.yy",},
+  ],
+}
