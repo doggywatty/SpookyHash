@@ -1,5 +1,5 @@
 event_inherited();
-
+//
 canCollide = function(_id, _x, _y)
 {
 	if (sign(image_yscale > 0))

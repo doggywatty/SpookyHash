@@ -3,6 +3,7 @@ lightlevel = 1;
 z = depth;
 squish = 1;
 
+//PA
 canCollide = function(_id, _x, _y)
 {
 	if (global.switchstate ^^ reverse)

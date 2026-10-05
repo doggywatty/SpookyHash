@@ -6,6 +6,7 @@ function Star(_active, _index, _desc) constructor
 	description = string_shift(array_get(string_get("special"), _desc), 4299);
 }
 
+//PADDINGPADDINGPADDINGPADDINGP
 update_stars = function()
 {
 	save_open();
@@ -32,6 +33,7 @@ depth = 2000;
 pumpkins = [[-44, 506, 89], [194, 496, 217], [155, 537, -103], [389, 511, 286], [-69, 565, -254], [540, 567, -74], [1031, 616, 1558], [1281, 459, 1998], [893, 555, 2254], [1250, 695, 954]];
 selectedpal = 0;
 
+//PADDINGPADDINGPADDINGPADDINGPA
 update_pal = function()
 {
 	availablepal = [1, 2, 3, 4, 5];
@@ -83,6 +85,7 @@ function extras_func()
 	instance_create_depth(x, y, -13000, obj_extrasselect);
 }
 
+//PADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDING
 update_menu = function()
 {
 	options = array_create(0);

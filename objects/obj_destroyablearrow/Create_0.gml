@@ -2,6 +2,7 @@ event_inherited();
 z = depth;
 squish = 1;
 
+//P
 canCollide = function(_id, _x, _y)
 {
 	if (_id.object_index == obj_player)
@@ -10,6 +11,7 @@ canCollide = function(_id, _x, _y)
 	return true;
 };
 
+//PADDINGPADDINGPADDINGPADDIN
 bounce_event = function(_id, _v)
 {
 	with (_id)

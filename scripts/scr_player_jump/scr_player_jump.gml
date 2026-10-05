@@ -1,20 +1,20 @@
 function scr_player_jump()
 {
 	var _analogue = input_value("left") + input_value("right");
-	
+
 	hit_horizontal = function(_h)
 	{
 		momentum = 0;
 		wallslide(_h);
 	};
-	
+	 
 	hit_vertical = function(_v)
 	{
 		if (_v >= 0)
 		{
 			if (!canchangedir)
 				movespeed = abs(movespeed);
-			
+
 			if (!input_check("dash"))
 			{
 				if (sign(hsp) != image_xscale && sign(hsp) != 0 && (sprite_index == spr_player_sidesomersault || sprite_index == spr_player_sidesomersaultend))
@@ -31,7 +31,7 @@ function scr_player_jump()
 				{
 					landanim = 1;
 					state = playerstate.normal;
-					
+
 					if (move != 0)
 						sprite_index = spr_player_land2;
 					else
@@ -42,19 +42,19 @@ function scr_player_jump()
 			{
 				if (sign(hsp) != image_xscale && sign(hsp) != 0 && (sprite_index == spr_player_sidesomersault || sprite_index == spr_player_sidesomersaultend))
 					image_xscale = sign(hsp);
-				
+
 				landanim = 1;
 				state = playerstate.sprint;
 				sprite_index = spr_player_mach2land;
 			}
-			
+
 			image_index = 0;
 			jumpstop = 1;
 			scr_fmod_soundeffect(landsnd, x, y);
 			scr_createparticle(true, x, y, z - 1, spr_landcloud, image_xscale, 1, 0, 0.5, 0, 0, platspeedH, platspeedV);
 		}
 	};
-	
+
 	collide_destructibles = function(_h, _v)
 	{
 		scr_destroybounce(_v);

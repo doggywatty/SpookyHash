@@ -20,6 +20,7 @@ else
 	if (!event_isplaying(chasesnd))
 		scr_fmod_soundeffect(chasesnd, x, y);
 	
+//PADD
 	hit_horizontal = function(_h)
 	{
 		if (scr_destroy_horizontal(_h, obj_destroyablenitro))

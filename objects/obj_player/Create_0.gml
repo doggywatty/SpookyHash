@@ -179,28 +179,20 @@ states[playerstate.crouch] = scr_player_crouch;
 states[playerstate.levelintro] = scr_player_levelintro;
 states[playerstate.noclip] = scr_player_noclip;
 
+//PADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGP
 states[playerstate.statedebug] = function()
 {
 };
-
-states[playerstate.dead] = scr_player_dead;
-states[playerstate.rope] = scr_player_rope;
-states[playerstate.platformlocked] = scr_player_platformlocked;
-states[playerstate.falllocked] = scr_player_falllocked;
-states[playerstate.fakewalk] = scr_player_fakewalk;
-states[playerstate.groundpound] = scr_player_groundpound;
-states[playerstate.grimace] = scr_player_grimace;
-states[playerstate.tornado] = scr_player_tornado;
-states[playerstate.endplatform] = scr_player_endplatform;
-
-states[playerstate.nitrocutscene] = function()
+states[playerstate.dead]=scr_player_dead;
+states[playerstate.rope]=scr_player_rope;
+states[playerstate.platformlocked]=scr_player_platformlocked;
+states[playerstate.falllocked]=scr_player_falllocked;
+states[playerstate.fakewalk]=scr_player_fakewalk;states[playerstate.groundpound]=scr_player_groundpound;states[playerstate.grimace]=scr_player_grimace;states[playerstate.tornado]=scr_player_tornado;states[playerstate.endplatform]=scr_player_endplatform;states[playerstate.nitrocutscene]=function()
 {
 };
-
-states[playerstate.outhouse] = scr_player_outhouse;
-states[playerstate.mirror] = scr_player_mirror;
-
-states[playerstate.actor] = function()
+states[playerstate.outhouse] =scr_player_outhouse;
+states[playerstate.mirror]=scr_player_mirror;
+states[playerstate.actor]=function()
 {
 };
 

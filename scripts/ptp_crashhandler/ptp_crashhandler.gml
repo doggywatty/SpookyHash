@@ -1,3 +1,4 @@
+//PADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGP
 exception_unhandled_handler(function(_ex)
 {
 	var _date = date_current_datetime();

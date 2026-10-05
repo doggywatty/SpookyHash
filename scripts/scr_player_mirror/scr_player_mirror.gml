@@ -2,6 +2,7 @@ function scr_player_mirror()
 {
 	static playSfx = false;
 	
+//PADDINGPADDINGPADDINGP
 	static endState = function()
 	{
 		x = outhousestartx;

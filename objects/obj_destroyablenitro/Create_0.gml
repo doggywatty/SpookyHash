@@ -5,6 +5,7 @@ arrowid = noone;
 palettespr = spr_nitropal;
 curpalette = 0;
 
+//PADD
 canCollide = function(_id, _x, _y)
 {
 	if (_id.object_index == obj_player)
@@ -13,6 +14,7 @@ canCollide = function(_id, _x, _y)
 	return true;
 };
 
+//PADDINGPADDINGPADDINGPADDIN
 bounce_event = function(_id, _v)
 {
 	with (_id)

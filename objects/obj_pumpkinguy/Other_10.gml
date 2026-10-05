@@ -15,15 +15,15 @@ else
 	nohit = false;
 	nobounce = false;
 	hurtplayer = true;
-	
+
 	if (!chasing)
 	{
 		if (!spotted)
 			sprite_index = spr_pumpkinjoe_outranidle;
-		
+
 		image_speed = 0.35;
 		hsp = approach(hsp, 0, 0.25);
-		
+
 		if (check_in_rect(obj_player, x - 300, x + 300, y - 300, y + 300) && !spotted && player_collideable())
 		{
 			spotted = true;
@@ -31,12 +31,12 @@ else
 			image_index = 0;
 			scr_fmod_soundeffectONESHOT("event:/sfx/enemy/pumpkinjoenotice", x, y);
 		}
-		
+
 		if (sprite_index == spr_pumpkinjoe_chasestart)
 		{
 			if (obj_player.x != x)
 				image_xscale = -sign(x - obj_player.x);
-			
+
 			if (sprite_animation_end())
 			{
 				chasing = true;
@@ -44,10 +44,10 @@ else
 				image_index = 0;
 			}
 		}
-	}
-	else
-	{
-		hit_horizontal = function(_h)
+}
+else
+{
+hit_horizontal = function(_h)
 		{
 			if (scr_destroy_horizontal(_h, obj_destroyablenitro))
 				exit;

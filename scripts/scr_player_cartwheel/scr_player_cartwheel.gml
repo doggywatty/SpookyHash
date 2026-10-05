@@ -3,7 +3,7 @@ function scr_player_cartwheel()
 	hit_horizontal = function(_h)
 	{
 		momentum = 0;
-		
+
 		if (scr_solid(x, y + 1, [obj_slope, obj_slopePlatform]) && grounded && sign(_h) == image_xscale)
 		{
 			state = playerstate.wall;
@@ -17,11 +17,11 @@ function scr_player_cartwheel()
 			vsp = 0;
 			gamepadvibrate(0.3, 0, 3);
 			scr_fmod_soundeffect(splatsnd, x, y);
-			image_index = 0;
-		}
-	};
-	
-	collide_destructibles = function(_h, _v)
+image_index = 0;
+}
+};
+
+collide_destructibles = function(_h, _v)
 	{
 		scr_destroy_horizontal(_h * 2);
 		

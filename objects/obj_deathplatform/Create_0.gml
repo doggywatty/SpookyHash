@@ -1,10 +1,11 @@
 event_inherited();
-
+//
 in_room = function()
 {
 	return room == startingroom || room == targetroom;
 };
 
+//
 canCollide = function(_id, _x, _y)
 {
 	return in_room() && (obj_player.diddeathroute || !global.playerhit);

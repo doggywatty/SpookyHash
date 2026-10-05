@@ -3,7 +3,7 @@ function scr_player_sprintjump()
 	hit_horizontal = function(_h)
 	{
 		momentum = 0;
-		
+
 		if (!scr_solid(x + _h, y, obj_nostickwall))
 			wallslide(_h);
 	};
@@ -19,7 +19,7 @@ function scr_player_sprintjump()
 			scr_createparticle(true, x, y, z - 1, spr_landcloud, image_xscale, 1, 0, 0.5, 0, 0, platspeedH, platspeedV);
 		}
 	};
-	
+
 	collide_destructibles = function(_h, _v)
 	{
 		scr_destroybounce(_v);

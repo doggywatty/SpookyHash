@@ -4,6 +4,7 @@ hp = 5;
 squish = 1;
 toolong = false;
 
+//PAD
 canCollide = function(_id, _x, _y)
 {
 	if (_id.object_index == obj_player)
@@ -12,6 +13,7 @@ canCollide = function(_id, _x, _y)
 	return true;
 };
 
+//PADDINGPADDINGPADDINGPADDIN
 bounce_event = function(_id, _y)
 {
 	with (_id)

@@ -10,6 +10,7 @@ for (var i = 0; i < (array_length(global.levelrooms) - 3); i++)
 	}
 	else
 	{
+//PADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDING
 		var _hasnitros = count_in_room(global.levelrooms[i], function(_room_inst, _index)
 		{
 			return (_room_inst.object_index == "obj_destroyablenitro" && !in_saveroom(_room_inst.id, global.respawnroom)) || (_room_inst.object_index == "obj_destroyablenitroarrow" && in_saveroom($"{real(_room_inst.id)}_ARROW", global.respawnroom) && !in_saveroom($"{real(_room_inst.id)}_NITRO", global.respawnroom));

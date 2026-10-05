@@ -5,6 +5,7 @@ squish = 1;
 canCollide = -1;
 lightlevel = 1;
 
+//PADD
 bounce_event = function(_id, _v)
 {
 	if (!activated && _v >= 0)
