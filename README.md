@@ -1,7 +1,7 @@
 # SpookyHash
 SpookyHash? Couldn't come up with a better name.</br>
 Made this for fun, out of boredom and for early Halloween, enjoy!</br>
-A decompilation of the [Noise's Halloween Bash](https://pizza-tower-19-plus.itch.io/noises-halloween-bash) (1.0.5) fangame.
+A decompilation of the [Noise's Halloween Bash](https://pizza-tower-19-plus.itch.io/noises-halloween-bash) fangame.
 
 ---
 
