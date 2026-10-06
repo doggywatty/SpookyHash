@@ -3,7 +3,7 @@ with (obj_player)
 	if (!nointro)
 	{
 		nointro = true;
-		state = playerstate.levelintro;
+		state = pstate.levelintro;
 		sprite_index = spr_player_titlescreenlaunch;
 		y -= (global.maxscreenheight * 0.75);
 	}

@@ -6,11 +6,11 @@ function scr_player_cartwheel()
 
 		if (scr_solid(x, y + 1, [obj_slope, obj_slopePlatform]) && grounded && sign(_h) == image_xscale)
 		{
-			state = playerstate.wall;
+			state = pstate.wall;
 		}
 		else
 		{
-			state = playerstate.bump;
+			state = pstate.bump;
 			sprite_index = spr_player_wallsplat;
 			event_stop(tornadosnd, 1);
 			movespeed = 0;
@@ -21,6 +21,7 @@ image_index = 0;
 }
 };
 
+//PADDING
 collide_destructibles = function(_h, _v)
 	{
 		scr_destroy_horizontal(_h * 2);
@@ -69,7 +70,7 @@ collide_destructibles = function(_h, _v)
 		
 		jumpnum = 1;
 		jumpbuffer = 0;
-		state = playerstate.sprintjump;
+		state = pstate.sprintjump;
 		sprite_index = spr_player_longjump;
 		image_index = 0;
 		jumpstop = 0;
@@ -91,12 +92,12 @@ collide_destructibles = function(_h, _v)
 		
 		if (grounded && vsp >= 0)
 		{
-			state = playerstate.sprint;
+			state = pstate.sprint;
 			sprite_index = spr_player_mach2;
 		}
 		else
 		{
-			state = playerstate.sprintjump;
+			state = pstate.sprintjump;
 			sprite_index = spr_player_mach2fall;
 		}
 	}
@@ -115,7 +116,7 @@ collide_destructibles = function(_h, _v)
 		dir = image_xscale;
 		sprite_index = spr_player_longjump;
 		jumpstop = 1;
-		state = playerstate.Jump;
+		state = pstate.Jump;
 		image_index = 0;
 	}
 	

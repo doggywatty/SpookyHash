@@ -19,7 +19,7 @@ function scr_player_jump()
 			{
 				if (sign(hsp) != image_xscale && sign(hsp) != 0 && (sprite_index == spr_player_sidesomersault || sprite_index == spr_player_sidesomersaultend))
 				{
-					state = playerstate.normal;
+					state = pstate.normal;
 					image_xscale = sign(hsp);
 					dir = image_xscale;
 					turning = 1;
@@ -30,7 +30,7 @@ function scr_player_jump()
 				else
 				{
 					landanim = 1;
-					state = playerstate.normal;
+					state = pstate.normal;
 
 					if (move != 0)
 						sprite_index = spr_player_land2;
@@ -44,7 +44,7 @@ function scr_player_jump()
 					image_xscale = sign(hsp);
 
 				landanim = 1;
-				state = playerstate.sprint;
+				state = pstate.sprint;
 				sprite_index = spr_player_mach2land;
 			}
 
@@ -55,6 +55,7 @@ function scr_player_jump()
 		}
 	};
 
+//PADDINGPADDI
 	collide_destructibles = function(_h, _v)
 	{
 		scr_destroybounce(_v);

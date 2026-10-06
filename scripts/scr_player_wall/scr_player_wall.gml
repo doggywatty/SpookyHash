@@ -31,7 +31,7 @@ function scr_player_wall()
 	if (!scr_solid(x + image_xscale, y) || !input_check("dash") || scr_solid(x, y - 1) || sprite_index == spr_player_machslide || sprite_index == spr_player_mach2turn)
 	{
 		event_stop(cartwheelsnd, true);
-		state = playerstate.Jump;
+		state = pstate.Jump;
 		sprite_index = spr_player_wallrunend;
 		image_index = 0;
 		jumpstop = 1;
@@ -56,7 +56,7 @@ function scr_player_wall()
 	{
 		jumpbuffer = 0;
 		event_stop(tornadosnd, true);
-		state = playerstate.sprintjump;
+		state = pstate.sprintjump;
 		sprite_index = spr_player_longjump;
 		scr_fmod_soundeffect(jumpsnd, x, y);
 		vsp = -10;

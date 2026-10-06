@@ -18,8 +18,8 @@ bounce_event = function(_id, _v)
 	{
 		if (_v >= 0)
 		{
-			if (state == playerstate.hurt)
-				state = playerstate.Jump;
+			if (state == pstate.hurt)
+				state = pstate.Jump;
 			
 			cratebounceeffect(_id);
 			player_bounce(input_check("jump") ? -18 : -15);

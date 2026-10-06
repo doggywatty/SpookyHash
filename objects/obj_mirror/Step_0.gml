@@ -8,13 +8,13 @@ if (game_paused())
 
 if (place_meeting(x, y, obj_player))
 {
-	if (input_check_pressed("up") && obj_player.state == playerstate.normal)
+	if (input_check_pressed("up") && obj_player.state == pstate.normal)
 	{
 		with (obj_player)
 		{
 			outhousestartx = x;
 			outhousestarty = y;
-			state = playerstate.mirror;
+			state = pstate.mirror;
 			image_index = 0;
 			sprite_index = spr_player_platformhop;
 		}

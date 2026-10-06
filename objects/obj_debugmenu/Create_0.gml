@@ -148,14 +148,14 @@ var _baseoptions = new DEBUGFolder("DebugJr v0.1", [new DEBUGMenuItem("Toggle Co
 		with (obj_jegplayer)
 			noclip = !noclip;
 	}
-	else if (obj_player.state == playerstate.noclip)
+	else if (obj_player.state == pstate.noclip)
 	{
 		obj_player.state = obj_player.debugstate;
 	}
 	else
 	{
 		obj_player.debugstate = obj_player.state;
-		obj_player.state = playerstate.noclip;
+		obj_player.state = pstate.noclip;
 		
 		if (!game_paused())
 			instance_destroy(obj_optionsmenu);
@@ -163,6 +163,7 @@ var _baseoptions = new DEBUGFolder("DebugJr v0.1", [new DEBUGMenuItem("Toggle Co
 	
 	_f.open = false;
 //PADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPA
+//PADDING
 }), new DEBUGFolder("Go to Room", _roomoptions), new DEBUGMenuItem("Toggle Debug Camera", function(_f)
 {
 	if (obj_drawcontroller.debugcamcontrols)
@@ -174,7 +175,7 @@ var _baseoptions = new DEBUGFolder("DebugJr v0.1", [new DEBUGMenuItem("Toggle Co
 	else
 	{
 		obj_player.debugstate = obj_player.state;
-		obj_player.state = playerstate.statedebug;
+		obj_player.state = pstate.statedebug;
 		obj_drawcontroller.debugcam = true;
 		obj_drawcontroller.debugcamcontrols = true;
 		
@@ -184,6 +185,7 @@ var _baseoptions = new DEBUGFolder("DebugJr v0.1", [new DEBUGMenuItem("Toggle Co
 	
 	_f.open = false;
 //PADDINGPADDINGPADDINGPADDINGPADDINGP
+//PA
 }), new DEBUGMenuItem("Lock/Unlock Camera", function(_f)
 {
 	if (obj_drawcontroller.debugcam && !obj_drawcontroller.debugcamcontrols)
@@ -193,7 +195,7 @@ var _baseoptions = new DEBUGFolder("DebugJr v0.1", [new DEBUGMenuItem("Toggle Co
 	}
 	else
 	{
-		if (obj_player.state == playerstate.statedebug)
+		if (obj_player.state == pstate.statedebug)
 			obj_player.state = obj_player.debugstate;
 		
 		obj_drawcontroller.debugcam = true;
@@ -202,6 +204,7 @@ var _baseoptions = new DEBUGFolder("DebugJr v0.1", [new DEBUGMenuItem("Toggle Co
 	
 	_f.open = false;
 //PADDINGPADDINGPADDINGPADDIN
+//PA
 }), new DEBUGMenuItem("Reset Player", function(_f)
 {
 	if (room != Titlescreen)
@@ -290,15 +293,17 @@ var _baseoptions = new DEBUGFolder("DebugJr v0.1", [new DEBUGMenuItem("Toggle Co
 }), new DEBUGMenuItem("Rank Test", function(_f)
 {
 	room_goto(RankRoom);
-	obj_player.state = playerstate.actor;
+	obj_player.state = pstate.actor;
 	_f.open = false;
 //PADDINGPADDIN
+//PA
 }), new DEBUGMenuItem("Credits Test", function(_f)
 {
 	room_goto(Credits);
-	obj_player.state = playerstate.actor;
+	obj_player.state = pstate.actor;
 	_f.open = false;
 //PADDINGPADDIN
+//PA
 }), new DEBUGMenuItem("Evil Teleport", function(_f)
 {
 	with (obj_deathplatform)

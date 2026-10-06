@@ -71,7 +71,7 @@ function exit_func()
 	resume_func();
 	player_reset();
 	room_goto(Titlescreen);
-	obj_player.state = playerstate.actor;
+	obj_player.state = pstate.actor;
 }
 
 function manual_func()

@@ -1,20 +1,20 @@
 var _endcond = false;
 
-if (state == playerstate.endplatform)
+if (state == pstate.endplatform)
 {
 	if (instance_exists(obj_endplatplayer))
 		_endcond = obj_endplatplayer.dothing;
 }
 
-if (!_endcond && state != playerstate.levelintro && scr_hudroom())
+if (!_endcond && state != pstate.levelintro && scr_hudroom())
 	global.timer++;
 
-if (state == playerstate.levelintro || (!scr_hudroom() && room != RankRoom))
+if (state == pstate.levelintro || (!scr_hudroom() && room != RankRoom))
 	global.timer = 0;
 
 visible = true;
 
-if (game_paused() || in_debug_menu() || state == playerstate.nitrocutscene)
+if (game_paused() || in_debug_menu() || state == pstate.nitrocutscene)
 {
 	image_index -= image_speed;
 	
@@ -33,7 +33,7 @@ xprev = x;
 if (y > (room_height + 500))
 	event_perform(ev_other, ev_room_start);
 
-if (state != playerstate.actor && state != playerstate.dead && state != playerstate.levelintro && state != playerstate.noclip && state != playerstate.statedebug && state != playerstate.rope)
+if (state != pstate.actor && state != pstate.dead && state != pstate.levelintro && state != pstate.noclip && state != pstate.statedebug && state != pstate.rope)
 	scr_collide();
 
 enum standingsurfaces
@@ -64,7 +64,7 @@ if (grounded && vsp >= 0)
 		standingsurface = standingsurfaces.slop;
 }
 
-if (state != playerstate.actor && state != playerstate.endplatform)
+if (state != pstate.actor && state != pstate.endplatform)
 {
 	if (grounded)
 	{
@@ -99,7 +99,7 @@ if (state != playerstate.actor && state != playerstate.endplatform)
 	
 	slidebuffer = max(slidebuffer - 1, 0);
 }
-else if (state == playerstate.actor)
+else if (state == pstate.actor)
 {
 	hsp = 0;
 	vsp = 0;
@@ -110,33 +110,33 @@ if (sprite_index != spr_player_walljumpstart && sprite_index != spr_player_wallj
 
 states[state]();
 
-if (state != playerstate.normal)
+if (state != pstate.normal)
 {
 	landanim = 0;
 	movestop = 0;
 	turning = 0;
 }
 
-if (grounded && vsp >= 0 && state != playerstate.Jump && state != playerstate.sprintjump)
+if (grounded && vsp >= 0 && state != pstate.Jump && state != pstate.sprintjump)
 	bouncecombo = 0;
 
-if (state != playerstate.Jump)
+if (state != pstate.Jump)
 	hovering = 0;
 
-if (state != playerstate.crouch && state != playerstate.Jump)
+if (state != pstate.crouch && state != pstate.Jump)
 	crouchjump = 0;
 
-if (state != playerstate.machslide && state != playerstate.Jump)
+if (state != pstate.machslide && state != pstate.Jump)
 	canchangedir = 1;
 
-if (state != playerstate.cartwheel)
+if (state != pstate.cartwheel)
 	cartwheelcooldown = approach(cartwheelcooldown, 0, 1);
 
 walljumptimer = approach(walljumptimer, 0, 1);
 wallslidecanceltimer = approach(wallslidecanceltimer, 0, 1);
 longjumptimer = approach(longjumptimer, 0, 1);
 
-if (state != playerstate.Punch && nextpunch > 0)
+if (state != pstate.Punch && nextpunch > 0)
 {
 	nextpunch = approach(nextpunch, 0, 1);
 	
@@ -144,19 +144,19 @@ if (state != playerstate.Punch && nextpunch > 0)
 		lastpunch = 0;
 }
 
-if (state != playerstate.sprint && state != playerstate.wall)
+if (state != pstate.sprint && state != pstate.wall)
 	mach4mode = 0;
 
-if (state != playerstate.standstillrun)
+if (state != pstate.standstillrun)
 	standstillrun = 0;
 
-if (move != dontcling || (state != playerstate.normal && state != playerstate.crouch && state != playerstate.Jump))
+if (move != dontcling || (state != pstate.normal && state != pstate.crouch && state != pstate.Jump))
 	dontcling = 0;
 
-if (state != playerstate.Downslide)
+if (state != pstate.Downslide)
 	slidetime = 18;
 
-if (state == playerstate.rope)
+if (state == pstate.rope)
 	ropel = min(ropel + 0.1, 1);
 else
 	ropel = 0;
@@ -174,7 +174,7 @@ if (sprite_index != spr_player_idle)
 if (!place_meeting(x, y, obj_hallway))
 	outofhallway = true;
 
-if (state != playerstate.fakewalk)
+if (state != pstate.fakewalk)
 	fakewalktime = 0;
 
 if (showturnsprite && !ondeathplatform && (floor((wrap(platformspin, 0, 360) / 360) * 16) == 2 || floor((wrap(platformspin, 0, 360) / 360) * 16) == 14))
@@ -183,9 +183,9 @@ if (showturnsprite && !ondeathplatform && (floor((wrap(platformspin, 0, 360) / 3
 if (floor((wrap(platformspin, 0, 360) / 360) * 16) != 2 && floor((wrap(platformspin, 0, 360) / 360) * 16) != 14)
 	showturnsprite = true;
 
-var afterimagegroundpoundcheck = obj_player.state == playerstate.groundpound && obj_player.sprite_index == spr_player_groundpound;
+var afterimagegroundpoundcheck = obj_player.state == pstate.groundpound && obj_player.sprite_index == spr_player_groundpound;
 
-if ((movespeed > 9 || afterimagegroundpoundcheck) && state != playerstate.rope)
+if ((movespeed > 9 || afterimagegroundpoundcheck) && state != pstate.rope)
 {
 	if (afterimagetime <= 0)
 	{
@@ -232,7 +232,7 @@ if (grounded)
 	angle = lerpAngle(angle, get_floor_angle(), _lerpspd);
 	hovered = 0;
 }
-else if (state != playerstate.wall)
+else if (state != pstate.wall)
 {
 	angle = 0;
 }
@@ -275,7 +275,7 @@ if (onslipperyplat && sprite_index != spr_player_move && sprite_index != spr_pla
 		particlewithcooldown(6, false, x + hsp, y + 45, depth - 8, spr_slopparticles, 1.25, 1.25, irandom(4), 0, irandom(360), 0.5, irandom_range(-hsp / 4, -hsp / 2), irandom_range(-5, -4));
 }
 
-if (state != playerstate.Downslide && state != playerstate.crouch)
+if (state != pstate.Downslide && state != pstate.crouch)
 	mask_index = spr_player_mask;
 else
 	mask_index = spr_player_maskcrouch;

@@ -1,4 +1,4 @@
-if (!instance_exists(obj_optionsmenu) && !instance_exists(obj_manual) && (!instance_exists(obj_extrasselect) || obj_extrasselect.fadeOut) && !in_debug_menu() && obj_player.state == playerstate.actor)
+if (!instance_exists(obj_optionsmenu) && !instance_exists(obj_manual) && (!instance_exists(obj_extrasselect) || obj_extrasselect.fadeOut) && !in_debug_menu() && obj_player.state == pstate.actor)
 {
 	if (!started)
 	{

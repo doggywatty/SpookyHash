@@ -10,7 +10,7 @@ function scr_player_grimace()
 	{
 		jumpbuffer = 0;
 		scr_fmod_soundeffect(jumpsnd, x, y);
-		state = playerstate.Jump;
+		state = pstate.Jump;
 		vsp = -12;
 		sprite_index = spr_player_jump;
 		image_index = 0;
@@ -20,7 +20,7 @@ function scr_player_grimace()
 	}
 	
 	if (sprite_animation_end())
-		state = playerstate.normal;
+		state = pstate.normal;
 	
 	if (floor(image_index) == 4 && !event_isplaying(grimacesnd))
 		scr_fmod_soundeffect(grimacesnd, x, y);

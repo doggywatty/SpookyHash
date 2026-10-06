@@ -24,8 +24,8 @@ if (sprite_index != bouncespr)
 			walljumptimer = 15 * momentum;
 		}
 		
-		if (state == playerstate.hurt)
-			state = playerstate.Jump;
+		if (state == pstate.hurt)
+			state = pstate.Jump;
 		
 		if (instance_exists(obj_playercape))
 			obj_playercape.sprite_index = spr_player_capeup;

@@ -21,7 +21,7 @@ for (var i = 0; i < _num; i++)
 		
 		if (object_index == obj_player)
 		{
-			if (state == playerstate.actor || state == playerstate.nitrocutscene)
+			if (state == pstate.actor || state == pstate.nitrocutscene)
 				continue;
 			
 			var _asc = instance_find(obj_ascendingplayer, 0);
@@ -43,13 +43,13 @@ for (var i = 0; i < _num; i++)
 			if (sprite_index == spr_player_nothing)
 				continue;
 			
-			if (state == playerstate.nitrocutscene)
+			if (state == pstate.nitrocutscene)
 				continue;
 			
-			if (state == playerstate.actor)
+			if (state == pstate.actor)
 				continue;
 			
-			if (state == playerstate.statedebug)
+			if (state == pstate.statedebug)
 				continue;
 		}
 		

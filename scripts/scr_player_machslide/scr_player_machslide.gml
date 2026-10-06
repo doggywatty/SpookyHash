@@ -42,12 +42,12 @@ function scr_player_machslide()
 	}
 	
 	if (onslipperyplat && move != 0 && sprite_index != spr_player_mach2turn)
-		state = playerstate.normal;
+		state = pstate.normal;
 	
 	if (jumpbuffer > 0)
 	{
 		jumpbuffer = 0;
-		state = playerstate.Jump;
+		state = pstate.Jump;
 		
 		if (sprite_index != spr_player_machslide)
 			image_xscale = -image_xscale;
@@ -75,13 +75,13 @@ function scr_player_machslide()
 		{
 			if (move == image_xscale)
 			{
-				state = playerstate.sprint;
+				state = pstate.sprint;
 				sprite_index = spr_player_mach2;
 				movespeed = 8;
 			}
 			else
 			{
-				state = playerstate.normal;
+				state = pstate.normal;
 			}
 		}
 	}
@@ -90,7 +90,7 @@ function scr_player_machslide()
 	{
 		sprite_index = spr_player_movestop;
 		image_index = 0;
-		state = playerstate.normal;
+		state = pstate.normal;
 		movestop = 1;
 	}
 	

@@ -15,11 +15,12 @@ function scr_player_sprintjump()
 			sprite_index = spr_player_mach2land;
 			image_index = 0;
 			scr_fmod_soundeffect(landsnd, x, y);
-			state = playerstate.sprint;
+			state = pstate.sprint;
 			scr_createparticle(true, x, y, z - 1, spr_landcloud, image_xscale, 1, 0, 0.5, 0, 0, platspeedH, platspeedV);
 		}
 	};
 
+//PA
 	collide_destructibles = function(_h, _v)
 	{
 		scr_destroybounce(_v);

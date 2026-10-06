@@ -2,7 +2,7 @@ function scr_player_rope()
 {
 	if (!instance_exists(ropeID))
 	{
-		state = playerstate.normal;
+		state = pstate.normal;
 		ropeID = noone;
 		exit;
 	}
@@ -50,7 +50,7 @@ function scr_player_rope()
 		if (input_check("dash") && move != 0)
 		{
 			movespeed = 12;
-			state = playerstate.sprintjump;
+			state = pstate.sprintjump;
 			sprite_index = spr_player_secondjump;
 			image_index = 5;
 		}
@@ -59,7 +59,7 @@ function scr_player_rope()
 			if (move != 0)
 				movespeed = 6;
 			
-			state = playerstate.Jump;
+			state = pstate.Jump;
 			sprite_index = spr_player_jump;
 			image_index = 0;
 			

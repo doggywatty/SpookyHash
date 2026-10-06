@@ -11,7 +11,7 @@ if (_plr.ondeathplatform != id)
 	{
 		if (!playerstillonplatform)
 		{
-			if (place_meeting(x, y - 1, _plr) && !place_meeting(x, y, _plr) && _plr.grounded && _plr.vsp >= 0 && _plr.state == playerstate.normal && _plr.hsp == 0)
+			if (place_meeting(x, y - 1, _plr) && !place_meeting(x, y, _plr) && _plr.grounded && _plr.vsp >= 0 && _plr.state == pstate.normal && _plr.hsp == 0)
 				platformmovetimer--;
 			else
 				platformmovetimer = 40;
@@ -20,7 +20,7 @@ if (_plr.ondeathplatform != id)
 			{
 				platformmovetimer = 40;
 				_plr.ondeathplatform = id;
-				_plr.state = playerstate.platformlocked;
+				_plr.state = pstate.platformlocked;
 				_plr.platformstartpos = _plr.x;
 				_plr.platformtargetpos = x;
 				
@@ -114,9 +114,9 @@ else
 		else
 			set_player_checkpoint(id, true);
 		
-		if (_plr.state == playerstate.platformlocked)
+		if (_plr.state == pstate.platformlocked)
 		{
-			_plr.state = playerstate.normal;
+			_plr.state = pstate.normal;
 			deathplat_camupdate();
 		}
 		

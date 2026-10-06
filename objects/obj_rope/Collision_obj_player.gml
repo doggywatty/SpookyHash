@@ -5,14 +5,14 @@ if (touchbuff <= 0)
 {
 	with (other.id)
 	{
-		if (state != playerstate.rope)
+		if (state != pstate.rope)
 		{
 			var _prevx = x;
 			var _prevy = y;
 			ropexstartpos = _prevx;
 			ropeystartpos = _prevy;
 			ropel = 0;
-			state = playerstate.rope;
+			state = pstate.rope;
 			ropeID = other.id;
 			obj_drawcontroller.interpplaypos = true;
 			other.wavespd = hsp * ((1 / other.image_yscale) * 0.6);

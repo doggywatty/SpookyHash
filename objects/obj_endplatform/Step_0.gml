@@ -46,7 +46,7 @@ if (global.pumpkintotal < 5)
 		}
 	}
 	
-	if (!leftkicktriggered && obj_player.state != playerstate.hurt)
+	if (!leftkicktriggered && obj_player.state != pstate.hurt)
 	{
 		var _prevmask = mask_index;
 		mask_index = spr_endplatshoemaskL;
@@ -98,7 +98,7 @@ if (global.pumpkintotal < 5)
 		}
 	}
 	
-	if (!rightkicktriggered && obj_player.state != playerstate.hurt)
+	if (!rightkicktriggered && obj_player.state != pstate.hurt)
 	{
 		var _prevmask = mask_index;
 		mask_index = spr_endplatshoemaskR;
@@ -122,7 +122,7 @@ else
 		obj_player.step_vertical = -1;
 		obj_player.step_horizontal = -1;
 		obj_player.collide_destructibles = -1;
-		obj_player.state = playerstate.endplatform;
+		obj_player.state = pstate.endplatform;
 		obj_player.vsp = 0;
 		instance_create_depth(0, 0, 0, obj_leaveprompt);
 		instance_create_depth(obj_player.x, obj_player.y, obj_player.z, obj_endplatplayer);

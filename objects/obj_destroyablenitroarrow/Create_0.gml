@@ -24,8 +24,8 @@ bounce_event = function(_id, _v)
 		
 		with (_id)
 		{
-			if (state == playerstate.hurt)
-				state = playerstate.Jump;
+			if (state == pstate.hurt)
+				state = pstate.Jump;
 			
 			player_bounce(input_check("jump") ? -18 : -15);
 		}

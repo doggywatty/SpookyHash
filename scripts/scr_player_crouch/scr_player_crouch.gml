@@ -77,7 +77,7 @@ function scr_player_crouch()
 	
 	if (!input_check("slide") && grounded && !ceilingcheck)
 	{
-		state = playerstate.normal;
+		state = pstate.normal;
 		landanim = sprite_index == spr_player_crouchfallbunnyturn || sprite_index == spr_player_crouchfallbunny;
 		
 		if (landanim)
@@ -97,7 +97,7 @@ function scr_player_crouch()
 	
 	if (input_check_pressed("attack") && grounded && !ceilingcheck)
 	{
-		state = playerstate.grimace;
+		state = pstate.grimace;
 		sprite_index = spr_player_grimace;
 		image_index = 0;
 	}
@@ -106,7 +106,7 @@ function scr_player_crouch()
 	{
 		jumpbuffer = 0;
 		scr_fmod_soundeffect(jumpsnd, x, y);
-		state = playerstate.Jump;
+		state = pstate.Jump;
 		vsp = -15;
 		sprite_index = spr_player_jump;
 		image_index = 0;

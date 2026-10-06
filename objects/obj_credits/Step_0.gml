@@ -235,7 +235,7 @@ if ((endshot && endtiptimer <= 0 && input_check_pressed("attack")) || (endhold >
 {
 	stop_music();
 	player_reset();
-	obj_player.state = playerstate.actor;
+	obj_player.state = pstate.actor;
 	room_goto(Titlescreen);
 }
 

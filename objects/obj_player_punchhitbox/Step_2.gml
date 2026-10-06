@@ -1,13 +1,13 @@
 event_inherited();
 
-if (obj_player.state != playerstate.Hitstun)
+if (obj_player.state != pstate.Hitstun)
 {
 	if (obj_player.sprite_index == spr_player_uppunch || obj_player.sprite_index == spr_player_upairpunch)
 		sprite_index = spr_player_uppunchhitbox;
 	else
 		sprite_index = spr_player_punchhitbox;
 	
-	if (obj_player.state != playerstate.Punch || (obj_player.state == playerstate.Punch && obj_player.image_index <= 3))
+	if (obj_player.state != pstate.Punch || (obj_player.state == pstate.Punch && obj_player.image_index <= 3))
 	{
 		instance_destroy();
 	}

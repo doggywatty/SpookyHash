@@ -10,7 +10,7 @@ function scr_player_mirror()
 		z = nonplatZ;
 		sprite_index = spr_player_idle;
 		image_index = 0;
-		state = playerstate.normal;
+		state = pstate.normal;
 		playSfx = false;
 	};
 	

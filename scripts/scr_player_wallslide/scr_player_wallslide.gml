@@ -29,7 +29,7 @@ function scr_player_wallslide()
 	
 	if ((!scr_solid(x + image_xscale, y) || scr_solid(x + image_xscale, y, obj_nostickwall)) || (move != image_xscale && wallslidecanceltimer == 0))
 	{
-		state = playerstate.Jump;
+		state = pstate.Jump;
 		jumpstop = 1;
 		image_index = 0;
 		
@@ -50,7 +50,7 @@ function scr_player_wallslide()
 	{
 		jumpbuffer = 0;
 		scr_createparticle(true, x, y, z + 4, spr_jumpcloud, image_xscale, image_yscale, 0, 0.5, (image_xscale == 1) ? 90 : -90);
-		state = playerstate.Jump;
+		state = pstate.Jump;
 		momentum = 1;
 		image_xscale *= -1;
 		dir = image_xscale;
@@ -77,7 +77,7 @@ function scr_player_wallslide()
 	}
 	
 	if (grounded)
-		state = playerstate.normal;
+		state = pstate.normal;
 	
 	particlewithcooldown(15, true, x, y, z + 4, spr_cloudeffect, 1, 1, 0, 0.5);
 	image_speed = 0.35;

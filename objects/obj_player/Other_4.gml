@@ -121,24 +121,24 @@ with (obj_drawcontroller)
 	curlock = noone;
 	curlockbboxdata = [];
 	
-	if (obj_player.state != playerstate.noclip)
+	if (obj_player.state != pstate.noclip)
 	{
 		with (obj_player)
 		{
 			var _meetx = x;
 			var _meety = y;
 			
-			if (state == playerstate.levelintro)
+			if (state == pstate.levelintro)
 				_meety = levelstarty;
 			
-			if (state == playerstate.nitrocutscene)
+			if (state == pstate.nitrocutscene)
 			{
 				var _scene = obj_nitrodetonatorcutscene;
 				_meetx = _scene.nitrox + (_scene.nitrow / 2);
 				_meety = _scene.nitroy + (_scene.nitroh / 2);
 			}
 			
-			if ((player_collideable() || state == playerstate.levelintro || obj_player.state == playerstate.outhouse) && (place_meeting(_meetx, _meety, par_camlock) || place_meeting(_meetx, _meety, obj_lockcamextender)))
+			if ((player_collideable() || state == pstate.levelintro || obj_player.state == pstate.outhouse) && (place_meeting(_meetx, _meety, par_camlock) || place_meeting(_meetx, _meety, obj_lockcamextender)))
 			{
 				var _lockid = noone;
 				

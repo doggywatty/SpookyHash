@@ -30,7 +30,7 @@ function scr_player_fakewalk()
 	if (fakewalktime <= 0)
 	{
 		fakewalktime = 0;
-		state = playerstate.normal;
+		state = pstate.normal;
 	}
 	
 	if ((sprite_index == spr_player_move && (floor(image_index) == 3 || floor(image_index) == 7)) || (sprite_index == spr_player_tiptoe && (floor(image_index) == 2 || floor(image_index) == 6)))

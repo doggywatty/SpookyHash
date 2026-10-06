@@ -11,6 +11,6 @@ function scr_player_noclip()
 	if (input_check_pressed("attack"))
 	{
 		attackbuffer = 0;
-		state = playerstate.normal;
+		state = pstate.normal;
 	}
 }

@@ -1,4 +1,4 @@
-if (game_paused() || (!player_collideable() && obj_player.state != playerstate.falllocked))
+if (game_paused() || (!player_collideable() && obj_player.state != pstate.falllocked))
 	exit;
 
 if (place_meeting(x, y, obj_player) && !playercollided)
@@ -10,7 +10,7 @@ if (place_meeting(x, y, obj_player) && !playercollided)
 	}
 	else
 	{
-		obj_player.state = playerstate.falllocked;
+		obj_player.state = pstate.falllocked;
 		obj_player.hit_horizontal = -1;
 		obj_player.hit_vertical = -1;
 		playercollided = true;

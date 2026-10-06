@@ -6,7 +6,7 @@ if (place_meeting(x, y - 1, obj_player) && !playeron)
 	obj_player.step_vertical = -1;
 	obj_player.step_horizontal = -1;
 	obj_player.collide_destructibles = -1;
-	obj_player.state = playerstate.endplatform;
+	obj_player.state = pstate.endplatform;
 	obj_player.vsp = 0;
 	instance_create_depth(0, 0, 0, obj_ascendprompt);
 	instance_create_depth(obj_player.x, obj_player.y, obj_player.z, obj_ascendingplayer);

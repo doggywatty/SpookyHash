@@ -8,7 +8,7 @@ function scr_player_outhouse()
 		z = nonplatZ;
 		sprite_index = spr_player_idle;
 		image_index = 0;
-		state = playerstate.normal;
+		state = pstate.normal;
 	};
 	
 	var _outhouse = instance_place(x, y, obj_outhouse);

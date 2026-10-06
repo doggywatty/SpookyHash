@@ -8,14 +8,14 @@ with (other.id)
 
 var _bouncecond = other.bbox_bottom < (bbox_bottom - ((bbox_bottom - bbox_top) * bboxhmul)) || (other.vsp >= 0 && bbox_bottom > (other.bbox_bottom - (_playerbbh / 2)));
 
-if (other.state == playerstate.hurt)
+if (other.state == pstate.hurt)
 	_bouncecond = other.bbox_bottom < (bbox_bottom - ((bbox_bottom - bbox_top) * bboxhmul)) && other.vsp >= 0;
 
-if (_bouncecond && !(other.state == playerstate.Downslide && other.sprite_index == spr_player_downslidedive && !nohit) && !other.grounded && !nobounce)
+if (_bouncecond && !(other.state == pstate.Downslide && other.sprite_index == spr_player_downslidedive && !nohit) && !other.grounded && !nobounce)
 {
 	with (other.id)
 	{
-		if (state != playerstate.groundpound)
+		if (state != pstate.groundpound)
 			player_bounce(input_check("jump") ? -15 : -11);
 	}
 	
@@ -26,7 +26,7 @@ if (_bouncecond && !(other.state == playerstate.Downslide && other.sprite_index 
 	exit;
 }
 
-if ((other.state == playerstate.cartwheel || other.state == playerstate.Downslide) && !nohit)
+if ((other.state == pstate.cartwheel || other.state == pstate.Downslide) && !nohit)
 {
 	shakecam(20, 20);
 	hitstun(4);

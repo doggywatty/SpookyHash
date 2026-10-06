@@ -21,7 +21,7 @@ function scr_player_punch()
 	{
 		jumpbuffer = 0;
 		scr_fmod_soundeffect(jumpsnd, x, y);
-		state = playerstate.Jump;
+		state = pstate.Jump;
 		vsp = -12;
 		sprite_index = spr_player_jump;
 		image_index = 0;
@@ -35,7 +35,7 @@ function scr_player_punch()
 	
 	if (sprite_animation_end())
 	{
-		state = playerstate.normal;
+		state = pstate.normal;
 		lastpunch++;
 		
 		if (lastpunch > 2)

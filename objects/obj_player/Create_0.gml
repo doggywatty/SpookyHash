@@ -1,4 +1,4 @@
-enum playerstate
+enum pstate
 {
 	normal,
 	Jump,
@@ -42,7 +42,7 @@ terminalVelocity = 20;
 depth += 5;
 z = depth;
 nonplatZ = z;
-state = playerstate.actor;
+state = pstate.actor;
 afterimagetime = 0;
 mach4mode = 0;
 dir = image_xscale;
@@ -87,7 +87,7 @@ levelstarty = y;
 hovering = 0;
 hovered = 0;
 dontcling = 0;
-debugstate = playerstate.normal;
+debugstate = pstate.normal;
 ropeID = noone;
 movingplatID = noone;
 ondeathplatform = noone;
@@ -161,40 +161,41 @@ currcheckpoint =
 	respawnroom: ds_map_create()
 };
 states = [];
-states[playerstate.normal] = scr_player_normal;
-states[playerstate.Jump] = scr_player_jump;
-states[playerstate.standstillrun] = scr_player_standstillrun;
-states[playerstate.sprint] = scr_player_sprint;
-states[playerstate.sprintjump] = scr_player_sprintjump;
-states[playerstate.machslide] = scr_player_machslide;
-states[playerstate.hurt] = scr_player_hurt;
-states[playerstate.bump] = scr_player_bump;
-states[playerstate.cartwheel] = scr_player_cartwheel;
-states[playerstate.Punch] = scr_player_punch;
-states[playerstate.wall] = scr_player_wall;
-states[playerstate.Downslide] = scr_player_downslide;
-states[playerstate.Hitstun] = scr_player_hitstun;
-states[playerstate.Wallslide] = scr_player_wallslide;
-states[playerstate.crouch] = scr_player_crouch;
-states[playerstate.levelintro] = scr_player_levelintro;
-states[playerstate.noclip] = scr_player_noclip;
+states[pstate.normal] = scr_player_normal;
+states[pstate.Jump] = scr_player_jump;
+states[pstate.standstillrun] = scr_player_standstillrun;
+states[pstate.sprint] = scr_player_sprint;
+states[pstate.sprintjump] = scr_player_sprintjump;
+states[pstate.machslide] = scr_player_machslide;
+states[pstate.hurt] = scr_player_hurt;
+states[pstate.bump] = scr_player_bump;
+states[pstate.cartwheel] = scr_player_cartwheel;
+states[pstate.Punch] = scr_player_punch;
+states[pstate.wall] = scr_player_wall;
+states[pstate.Downslide] = scr_player_downslide;
+states[pstate.Hitstun] = scr_player_hitstun;
+states[pstate.Wallslide] = scr_player_wallslide;
+states[pstate.crouch] = scr_player_crouch;
+states[pstate.levelintro] = scr_player_levelintro;
+states[pstate.noclip] = scr_player_noclip;
 
-//PADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGP
-states[playerstate.statedebug] = function()
-{
-};
-states[playerstate.dead]=scr_player_dead;
-states[playerstate.rope]=scr_player_rope;
-states[playerstate.platformlocked]=scr_player_platformlocked;
-states[playerstate.falllocked]=scr_player_falllocked;
-states[playerstate.fakewalk]=scr_player_fakewalk;states[playerstate.groundpound]=scr_player_groundpound;states[playerstate.grimace]=scr_player_grimace;states[playerstate.tornado]=scr_player_tornado;states[playerstate.endplatform]=scr_player_endplatform;states[playerstate.nitrocutscene]=function()
-{
-};
-states[playerstate.outhouse] =scr_player_outhouse;
-states[playerstate.mirror]=scr_player_mirror;
-states[playerstate.actor]=function()
-{
-};
+//PADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPAD
+states[pstate.statedebug] = function() {};
+states[pstate.dead] = scr_player_dead;
+states[pstate.rope] = scr_player_rope;
+states[pstate.platformlocked] = scr_player_platformlocked;
+states[pstate.falllocked] = scr_player_falllocked;
+states[pstate.fakewalk] = scr_player_fakewalk;
+states[pstate.groundpound] = scr_player_groundpound;
+states[pstate.grimace] = scr_player_grimace;
+states[pstate.tornado] = scr_player_tornado;
+states[pstate.endplatform] = scr_player_endplatform;
+//PADDINGPADD
+states[pstate.nitrocutscene] = function() {};
+states[pstate.outhouse] = scr_player_outhouse;
+states[pstate.mirror] = scr_player_mirror;
+//P
+states[pstate.actor] = function() {};
 
 jumpsnd = event_instance("event:/sfx/player/jump");
 landsnd = event_instance("event:/sfx/player/land");
@@ -232,7 +233,7 @@ standingsurface = standingsurfaces.grass;
 
 function jump()
 {
-	state = (state == playerstate.sprint || state == playerstate.standstillrun || state == playerstate.sprintjump) ? playerstate.sprintjump : playerstate.Jump;
+	state = (state == pstate.sprint || state == pstate.standstillrun || state == pstate.sprintjump) ? pstate.sprintjump : pstate.Jump;
 	vsp = -12;
 	
 	if (jumpnum == 2 && move == 0)
@@ -241,7 +242,7 @@ function jump()
 	switch (jumpnum++)
 	{
 		case 0:
-			if (state == playerstate.sprintjump)
+			if (state == pstate.sprintjump)
 			{
 				if (movespeed <= 11)
 				{
@@ -285,7 +286,7 @@ function punch()
 {
 	hit_horizontal = -1;
 	hit_vertical = -1;
-	state = playerstate.Punch;
+	state = pstate.Punch;
 	image_index = 0;
 	
 	if (move != 0)
@@ -330,7 +331,7 @@ function attack()
 	{
 		attackbuffer = 0;
 		
-		if ((state == playerstate.sprint || state == playerstate.Downslide) && grounded && vsp >= 0)
+		if ((state == pstate.sprint || state == pstate.Downslide) && grounded && vsp >= 0)
 		{
 			if (cartwheelcooldown <= 0)
 			{
@@ -343,12 +344,12 @@ function attack()
 				sprite_index = spr_player_tornado;
 				scr_fmod_soundeffect(tornadosnd, x, y);
 				
-				if (state == playerstate.Downslide)
+				if (state == pstate.Downslide)
 					movespeed = 16;
 				else
 					movespeed = 14;
 				
-				state = playerstate.cartwheel;
+				state = pstate.cartwheel;
 				longjumptimer = 30;
 				
 				if (grounded)
@@ -364,7 +365,7 @@ function attack()
 
 function groundpoundstart()
 {
-	state = playerstate.groundpound;
+	state = pstate.groundpound;
 	sprite_index = spr_player_groundpoundstart;
 	image_index = 0;
 	vsp = -5;
@@ -382,13 +383,13 @@ function downslide()
 		if (move != 0)
 			image_xscale = move;
 		
-		if (state == playerstate.Punch)
+		if (state == pstate.Punch)
 			event_stop(punchsnd, 1);
 		
-		if (state == playerstate.cartwheel)
+		if (state == pstate.cartwheel)
 			event_stop(cartwheelsnd, 1);
 		
-		state = playerstate.Downslide;
+		state = pstate.Downslide;
 		scr_createparticle(true, x, y, z + 4, spr_jumpdust, image_xscale);
 		
 		if (grounded)
@@ -420,13 +421,13 @@ function slide()
 		if (move != 0)
 			image_xscale = move;
 		
-		if (state == playerstate.Punch)
+		if (state == pstate.Punch)
 			event_stop(punchsnd, 1);
 		
-		if (state == playerstate.cartwheel)
+		if (state == pstate.cartwheel)
 			event_stop(cartwheelsnd, 1);
 		
-		state = playerstate.Downslide;
+		state = pstate.Downslide;
 		scr_createparticle(true, x, y, z + 4, spr_jumpdust, image_xscale);
 		sprite_index = spr_player_downslide;
 		scr_fmod_soundeffect(slidesnd, x, y);
@@ -448,13 +449,13 @@ function dive()
 		if (move != 0)
 			image_xscale = move;
 		
-		if (state == playerstate.Punch)
+		if (state == pstate.Punch)
 			event_stop(punchsnd, 1);
 		
-		if (state == playerstate.cartwheel)
+		if (state == pstate.cartwheel)
 			event_stop(cartwheelsnd, 1);
 		
-		state = playerstate.Downslide;
+		state = pstate.Downslide;
 		scr_createparticle(true, x, y, z + 4, spr_jumpdust, image_xscale);
 		sprite_index = spr_player_downslidedive;
 		vsp = 10;
@@ -468,10 +469,10 @@ function dive()
 
 function wallslide(_x)
 {
-	if ((sign(_x) == sign(image_xscale) || (sign(_x) == move && !canchangedir)) && !scr_solid(x + _x, y, obj_nostickwall) && !scr_solid(x, y + 1, [obj_slope, obj_slopePlatform]) && ((move == image_xscale && state != playerstate.sprint) || state == playerstate.sprint || (state == playerstate.Jump && !canchangedir)) && !grounded && dontcling == 0)
+	if ((sign(_x) == sign(image_xscale) || (sign(_x) == move && !canchangedir)) && !scr_solid(x + _x, y, obj_nostickwall) && !scr_solid(x, y + 1, [obj_slope, obj_slopePlatform]) && ((move == image_xscale && state != pstate.sprint) || state == pstate.sprint || (state == pstate.Jump && !canchangedir)) && !grounded && dontcling == 0)
 	{
 		image_xscale = sign(_x);
-		state = playerstate.Wallslide;
+		state = pstate.Wallslide;
 		wallslidecanceltimer = 10;
 		
 		if (vsp > 0)
@@ -492,7 +493,7 @@ function wallslide(_x)
 
 function hover()
 {
-	if (state == playerstate.falllocked)
+	if (state == pstate.falllocked)
 		exit;
 	
 	if (!grounded && vsp >= 0 && jumpbuffer > 0 && jumpbuffer <= 6 && !hovering && hovertime < hovermaxtime)
@@ -518,8 +519,8 @@ function hover()
 			canchangedir = true;
 		}
 		
-		if (state != playerstate.Jump)
-			state = playerstate.Jump;
+		if (state != pstate.Jump)
+			state = pstate.Jump;
 		
 		if (vsp > 0)
 		{

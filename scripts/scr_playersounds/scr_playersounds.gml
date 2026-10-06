@@ -9,7 +9,7 @@ function scr_playersounds()
 		_attr.forward.z = 1;
 		_attr.up.y = 1;
 		
-		if (state == playerstate.sprint || state == playerstate.wall)
+		if (state == pstate.sprint || state == pstate.wall)
 		{
 			if (!event_isplaying(machsnd))
 				fmod_studio_event_instance_start(machsnd);
@@ -37,7 +37,7 @@ function scr_playersounds()
 			event_stop(machsnd, 1);
 		}
 		
-		if (state == playerstate.standstillrun)
+		if (state == pstate.standstillrun)
 		{
 			if (!event_isplaying(runinplacesnd))
 				fmod_studio_event_instance_start(runinplacesnd);
@@ -47,7 +47,7 @@ function scr_playersounds()
 			event_stop(runinplacesnd, 1);
 		}
 		
-		if (state == playerstate.Wallslide)
+		if (state == pstate.Wallslide)
 		{
 			if (!event_isplaying(wallslidesnd))
 				fmod_studio_event_instance_start(wallslidesnd);
@@ -57,7 +57,7 @@ function scr_playersounds()
 			event_stop(wallslidesnd, 1);
 		}
 		
-		if (event_isplaying(groundpoundsnd) && (state != playerstate.groundpound || (state == playerstate.groundpound && sprite_index == spr_player_groundpoundland)))
+		if (event_isplaying(groundpoundsnd) && (state != pstate.groundpound || (state == pstate.groundpound && sprite_index == spr_player_groundpoundland)))
 			event_stop(groundpoundsnd, 1);
 		
 		if (event_isplaying(cartwheelsnd) && sprite_index != spr_player_cartwheel)
