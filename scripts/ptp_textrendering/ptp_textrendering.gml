@@ -356,6 +356,8 @@ function draw_text_fancy(_x, _y, _str, _color = c_white, _alpha = 1, _remapkeys 
 		var _input = string_copy(_str, i, 3);
 		var _xoff = 0;
 		var _yoff = 0;
+		var _rotxoff;
+		var _rotyoff;
 		var _rotoff = 0;
 		
 		if (_char == "\n")
@@ -419,11 +421,7 @@ function draw_text_fancy(_x, _y, _str, _color = c_white, _alpha = 1, _remapkeys 
 							_font = global.FONTDEF[f][1];
 							break;
 						}
-						else
-						{
-							f++;
-							continue;
-						}
+						f++;
 					}
 					
 					break;
@@ -445,11 +443,7 @@ function draw_text_fancy(_x, _y, _str, _color = c_white, _alpha = 1, _remapkeys 
 							_colset = true;
 							break;
 						}
-						else
-						{
-							c++;
-							continue;
-						}
+						c++;
 					}
 					
 					if (_colset == false)

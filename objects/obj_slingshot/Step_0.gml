@@ -9,7 +9,7 @@ if (game_paused())
 if (cooldown > 0)
 	cooldown--;
 
-if (place_meeting(x, y, obj_player) && obj_player.state == playerstate.sprint && cooldown == 0)
+if (place_meeting(x, y, obj_player) && obj_player.state == pstate.sprint && cooldown == 0)
 {
 	if (!touch)
 	{
@@ -24,7 +24,7 @@ with (obj_player)
 	{
 		x = round(approach(x, other.x, movespeed));
 		
-		if (state != playerstate.sprint)
+		if (state != pstate.sprint)
 		{
 			with (other.id)
 			{

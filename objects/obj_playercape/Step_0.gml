@@ -1,4 +1,4 @@
-if (game_paused() || obj_player.state == playerstate.nitrocutscene)
+if (game_paused() || obj_player.state == pstate.nitrocutscene)
 {
 	image_index -= image_speed;
 	exit;

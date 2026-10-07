@@ -4,15 +4,10 @@ optiontip = string_get("menu/options/tips/generic");
 
 function MenuItem(_name) constructor
 {
-	static update = function()
-	{
-	};
-	
-	static highlighted = function(_option)
-	{
-	};
-	
-	static draw = function(_x, _y, _alpha)
+//PADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDIN
+	static update = function(){};	
+	static highlighted = function(_option){};
+static draw=function(_x, _y, _alpha)
 	{
 		if (is_string(name))
 			draw_text_colour(round(_x), round(_y), name, c_white, c_white, c_white, c_white, 1 / (2 - _alpha));
@@ -20,99 +15,22 @@ function MenuItem(_name) constructor
 			draw_sprite_ext(name, 0, round(_x), round(_y), 1, 1, 0, c_white, 1 / (2 - _alpha));
 	};
 	
-	static parented = function()
+//PADDINGP
+	static parented = function(){};	
+	static left_right = function(_a, _b)
 	{
 	};
-	
-	static left_right = function(_normal_val, _slider_val)
-	{
-	};
-	
-	static jump = function(_selected)
-	{
-	};
-	
-	static taunt = function(_selected)
-	{
-	};
-	
-	static unlock = function(_selected)
-	{
-	};
-	
-	parent = noone;
-	yspacing = 50;
-	name = _name;
-	skip = false;
-	description = -1;
-}
+	//
+	static jump = function(_selected){};
+static taunt=function(_selected){};
+static unlock=function(_selected){};
+parent=noone;yspacing=50;name=_name;skip=false;description=-1;}
 
-function Spacer(_name = "") : MenuItem(_name) constructor
-{
-	skip = true;
-}
+function Spacer(_name=""):MenuItem(_name)constructor
+{skip=true;}
 
-function Option(_name, _variable, _section, _selections = [new Selection(string_get("menu/options/generic/no"), false), new Selection(string_get("menu/options/generic/yes"), true)], _updateglobals = noone, _auto = false) : MenuItem(_name) constructor
-{
-	static updatevar = function(_value, _save = true)
-	{
-		variable_global_set(variable, _value);
-		
-		if (_save)
-			config_set_option(section, variable, _value);
-		
-		if (updateglobals != noone)
-			updateglobals();
-	};
-	
-	static update = function()
-	{
-		array_foreach(selections, function(_option, _parent)
-		{
-			_option.update();
-		});
-	};
-	
-	static highlighted = function(_option)
-	{
-		selections[chosensel].highlighted(_option);
-	};
-	
-	static left_right = function(_normal_val, _slider_val)
-	{
-		if (!parent.locked && !alone)
-			chosensel = clamp(chosensel + _normal_val, 0, array_length(selections) - 1);
-		else
-			selections[chosensel].left_right(_normal_val, _slider_val);
-		
-		if (!alone && auto && _normal_val != 0)
-		{
-			updatevar(selections[chosensel].value);
-			event_play_oneshot("event:/sfx/pausemenu/impact");
-		}
-	};
-	
-	static jump = function(_selected)
-	{
-		selections[chosensel].jump(_selected);
-	};
-	
-	static taunt = function(_selected)
-	{
-		selections[chosensel].taunt(_selected);
-	};
-	
-	static unlock = function(_selected)
-	{
-		selections[chosensel].unlock(_selected);
-	};
-	
-	variable = _variable;
-	section = _section;
-	selections = _selections;
-	updateglobals = _updateglobals;
-	auto = _auto;
-	chosensel = 0;
+function Option(_name,_variable,_section,_selections=[new Selection(string_get("menu/options/generic/no"),false),new Selection(string_get("menu/options/generic/yes"),true)],_updateglobals=noone,_auto=false):MenuItem(_name)constructor
+{variable=_variable;section=_section;selections=_selections;updateglobals=_updateglobals;auto=_auto;chosensel= 0;
 	alone = array_length(selections) == 1;
 	
 	if (variable != "")
@@ -127,20 +45,49 @@ function Option(_name, _variable, _section, _selections = [new Selection(string_
 		}
 	}
 	
-	array_foreach(selections, function(_option, _parent)
-	{
-		_option.parent = self;
-		_option.parented();
+	array_foreach(selections, function(_a,_b){		_a.parent = self;
+		_a.parented();
 	});
+	static updatevar = function(_value,_save=true){
+		variable_global_set(variable, _value);
+		
+		if (_save)
+			config_set_option(section, variable, _value);
+		
+		if (updateglobals != noone)
+			updateglobals();
+	};
+	
+	static update = function(){	array_foreach(selections, function(_a,_b){_a.update();});};	
+	static highlighted = function(_a){selections[chosensel].highlighted(_a);	};
+	
+	static left_right = function(_normal_val,_slider_val){if(!parent.locked&&!alone)
+chosensel=clamp(chosensel+_normal_val,0,array_length(selections)-1);else
+selections[chosensel].left_right(_normal_val,_slider_val);
+if(!alone&& auto && _normal_val != 0)
+		{
+			updatevar(selections[chosensel].value);
+			event_play_oneshot("event:/sfx/pausemenu/impact");
+		}
+	};
+	
+	static jump = function(_a){		selections[chosensel].jump(_a);
+	};
+	
+	static taunt = function(_a){		selections[chosensel].taunt(_a);
+	};
+	
+	static unlock = function(_selected)
+	{
+		selections[chosensel].unlock(_selected);
+	};
+	
 }
 
 function Selection(_name, _value) : MenuItem(_name) constructor
 {
-	static getfolder = function()
-	{
-		return parent.parent;
-	};
-	
+//PADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADD
+	static getfolder = function(){return parent.parent;};	
 	static getwidth = function()
 	{
 		if (forcedwidth != -1)
@@ -151,22 +98,14 @@ function Selection(_name, _value) : MenuItem(_name) constructor
 		else if (name != -1)
 			return sprite_get_width(name);
 	};
-	
-	static highlighted = function(_option)
-	{
-		_option.optiontip = string_get(parent.auto ? "menu/options/tips/selectionauto" : "menu/options/tips/selection");
+	 
+	static highlighted = function(_option){_option.optiontip=string_get(parent.auto?"menu/options/tips/selectionauto" : "menu/options/tips/selection");
 	};
 	
-	static jump = function()
-	{
-		if (parent.auto)
-			exit;
-		
-		event_play_oneshot("event:/sfx/pausemenu/impact");
-		parent.updatevar(value);
-	};
-	
-	value = _value;
+	static jump = function(){if(parent.auto)
+exit;
+event_play_oneshot("event:/sfx/pausemenu/impact");parent.updatevar(value);};
+value=_value;
 	forcedwidth = -1;
 }
 
@@ -191,14 +130,12 @@ enum sliderval
 }
 function Slider(_value_min = 0, _value_max = 1, _value_step = 0.01, _visual = sliderval.hidden) : Selection(-1, -1) constructor
 {
-	static parented = function()
-	{
+//PADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADD
+	static parented = function()	{
 		value = variable_global_get(parent.variable);
 	};
 	
-	static highlighted = function(_option)
-	{
-		if (parent.alone)
+	static highlighted = function(_option){if(parent.alone)
 			_option.optiontip = string_get("menu/options/tips/slideralone");
 		else if (selected)
 			_option.optiontip = string_get("menu/options/tips/slider");
@@ -254,6 +191,7 @@ function Slider(_value_min = 0, _value_max = 1, _value_step = 0.01, _visual = sl
 		draw_text_colour(_x, _y, _text, c_white, c_white, c_white, c_white, 1 / (2 - _alpha));
 	};
 	
+//PADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPA
 	static jump = function()
 	{
 		if (!selected && !parent.alone)
@@ -263,13 +201,10 @@ function Slider(_value_min = 0, _value_max = 1, _value_step = 0.01, _visual = sl
 			selected = true;
 		}
 	};
-	
-	static left_right = function(_normal_val, _slider_val)
-	{
-		if (echo == 20)
-			rate += lerp(1/15, 1, rate_step);
-		
-		if (echo == 0 || rate >= 1)
+	 
+	static left_right = function(_normal_val,_slider_val){if(echo==20)
+rate+=lerp(1/15,1,rate_step);
+if(echo==0|| rate >= 1)
 		{
 			value = clamp(value + (_slider_val * value_step), value_min, value_max);
 			
@@ -316,15 +251,15 @@ function Slider(_value_min = 0, _value_max = 1, _value_step = 0.01, _visual = sl
 
 function Keybinder(_player, _filter) : Selection(-1, -1) constructor
 {
+//PADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGP
 	static update = function()
 	{
 		name = "[J]";
 		forcedwidth = 114;
 	};
 	
-	static highlighted = function(_option)
-	{
-		_option.optiontip = string_get("menu/options/tips/" + (selected ? "keybinder" : "keyconfig"));
+//PADDINGPADDINGPADDINGPADDIN
+	static highlighted = function(_option){_option.optiontip=string_get("menu/options/tips/"+(selected ? "keybinder" : "keyconfig"));
 	};
 	
 	static draw = function(_x, _y, _alpha)
@@ -342,6 +277,7 @@ function Keybinder(_player, _filter) : Selection(-1, -1) constructor
 		draw_set_valign(fa_middle);
 	};
 	
+//PADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADD
 	static jump = function()
 	{
 		if (!selected)
@@ -350,9 +286,8 @@ function Keybinder(_player, _filter) : Selection(-1, -1) constructor
 			event_play_oneshot("event:/sfx/pausemenu/impact");
 			getfolder().locked++;
 			input_binding_scan_params_set([vk_f1, vk_f2, vk_f3, vk_f4, vk_f5, vk_f6, vk_f7, vk_f8, vk_f9, vk_f10, vk_f11, vk_f12, vk_insert, vk_delete, vk_printscreen, vk_scrollock, vk_pause, vk_home, vk_end, vk_pageup, vk_pagedown, vk_lmeta, vk_rmeta, vk_numlock, vk_numpad0, vk_numpad1, vk_numpad2, vk_numpad3, vk_numpad4, vk_numpad5, vk_numpad6, vk_numpad7, vk_numpad8, vk_numpad9, vk_multiply, vk_divide, vk_add, vk_subtract, vk_decimal], , filter, player);
-			input_binding_scan_start(function(_binding)
-			{
-				var _prevbind = input_binding_get(parent.variable, 0, 0, parent.section);
+//PADDINGPA
+			input_binding_scan_start(function(_binding){		var _prevbind = input_binding_get(parent.variable, 0, 0, parent.section);
 				input_binding_set(parent.variable, _binding, player, 0, parent.section);
 				
 				if (!struct_equals(_binding, _prevbind))
@@ -360,11 +295,7 @@ function Keybinder(_player, _filter) : Selection(-1, -1) constructor
 				
 				getfolder().locked--;
 				selected = false;
-			}, function(_binding)
-			{
-				getfolder().locked--;
-				selected = false;
-			});
+			}, function(_binding){getfolder().locked--;selected=false;		});
 		}
 	};
 	
@@ -386,6 +317,7 @@ function Keybinder(_player, _filter) : Selection(-1, -1) constructor
 
 function StackedOption(_name, _variable, _section, _selections = [new Selection(string_get("menu/options/generic/off"), false), new Selection(string_get("menu/options/generic/on"), true)], _updateglobals = noone, _auto = true) : Option(_name, _variable, _section, _selections, _updateglobals, _auto) constructor
 {
+//PADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDIN
 	static draw = function(_x, _y, _alpha)
 	{
 		draw_text_colour(480, _y, name, c_white, c_white, c_white, c_white, 1 / (2 - _alpha));
@@ -409,6 +341,7 @@ function StackedOption(_name, _variable, _section, _selections = [new Selection(
 
 function SideOption(_name, _description, _variable, _section, _selections = [new Selection(string_get("menu/options/generic/off"), false), new Selection(string_get("menu/options/generic/on"), true)], _updateglobals = noone, _auto = true) : Option(_name, _variable, _section, _selections, _updateglobals, _auto) constructor
 {
+//PADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGP
 	static draw = function(_x, _y, _alpha)
 	{
 		var _sel = selections[chosensel];
@@ -423,6 +356,21 @@ function SideOption(_name, _description, _variable, _section, _selections = [new
 
 function Folder(_name, _options = [], _background = bg_options, _middlealign = false) : MenuItem(_name) constructor
 {
+	optionselected = 0;
+	options = _options;
+	background = _background;
+	middlealign = _middlealign;
+	locked = 0;
+	scroll = 0;
+	dofade = false;
+	fade = 0;
+//PADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPA
+	array_foreach(options, function(_option,_parent){_option.parent=self;_option.parented();});maxheight=0;
+	if (middlealign)
+	{
+		for (var _i = 0; _i < array_length(options); _i++)
+			maxheight += options[_i].yspacing;
+	}
 	static enterfolder = function(_folder)
 	{
 		var _memyselfandi = self;
@@ -437,10 +385,8 @@ function Folder(_name, _options = [], _background = bg_options, _middlealign = f
 		dofade = false;
 	};
 	
-	static exitfolder = function(_folder)
-	{
-		event_play_oneshot("event:/sfx/pausemenu/rubbersqueak");
-		ds_stack_pop(_folder.optionstack);
+//PADDINGPAD
+	static exitfolder = function(_folder){event_play_oneshot("event:/sfx/pausemenu/rubbersqueak");ds_stack_pop(_folder.optionstack);
 		
 		if (ds_stack_empty(_folder.optionstack))
 			instance_destroy(_folder);
@@ -448,9 +394,7 @@ function Folder(_name, _options = [], _background = bg_options, _middlealign = f
 			dofade = true;
 	};
 	
-	static drawoptions = function()
-	{
-		var _gy = middlealign ? ((get_game_height() / 2) - (maxheight / 2)) : 100;
+	static drawoptions = function(){		var _gy = middlealign ? ((get_game_height() / 2) - (maxheight / 2)) : 100;
 		var _totalspacing = _gy;
 		
 		if (!middlealign)
@@ -478,17 +422,9 @@ function Folder(_name, _options = [], _background = bg_options, _middlealign = f
 		}
 	};
 	
-	static update = function()
-	{
-		array_foreach(options, function(_option, _parent)
-		{
-			_option.update();
-		});
-	};
-	
-	static jump = function(_selected)
-	{
-		enterfolder(_selected);
+	static update = function(){	array_foreach(options, function(_a,_b){_a.update();});};	
+	static jump = function(_a){
+		enterfolder(_a);
 	};
 	
 	static unlock = function(_selected)
@@ -496,30 +432,11 @@ function Folder(_name, _options = [], _background = bg_options, _middlealign = f
 		exitfolder(_selected);
 	};
 	
-	optionselected = 0;
-	options = _options;
-	background = _background;
-	middlealign = _middlealign;
-	locked = 0;
-	scroll = 0;
-	dofade = false;
-	fade = 0;
-	array_foreach(options, function(_option, _parent)
-	{
-		_option.parent = self;
-		_option.parented();
-	});
-	maxheight = 0;
-	
-	if (middlealign)
-	{
-		for (var _i = 0; _i < array_length(options); _i++)
-			maxheight += options[_i].yspacing;
-	}
 }
 
 function KeyFolder(_name, _options = [], _background = bg_options, _middlealign = false) : Folder(_name, _options, _background, _middlealign) constructor
 {
+//PADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPAD
 	static jump = function(_selected)
 	{
 		enterfolder(_selected);
@@ -531,17 +448,12 @@ function KeyFolder(_name, _options = [], _background = bg_options, _middlealign 
 		input_profile_set(tempprofile);
 	};
 	
-	static unlock = function(_selected)
-	{
-		exitfolder(_selected);
-		
-		if (input_profile_exists(tempprofile))
-			input_profile_destroy(tempprofile);
-		
-		config_set_option("Input", "bindings", input_system_export(false));
-	};
-	
-	tempprofile = "pauseprofile";
+//PADDINGPADD
+	static unlock = function(_selected){exitfolder(_selected);
+if(input_profile_exists(tempprofile))
+input_profile_destroy(tempprofile);
+config_set_option("Input","bindings",input_system_export(false));};
+tempprofile = "pauseprofile";
 }
 
 var _resetbindskey = new MenuItem(string_get("menu/options/input/resetbinds"));
@@ -555,6 +467,7 @@ _resetbindskey.jump = function()
 
 var _resetbindspad = new MenuItem(string_get("menu/options/input/resetbinds"));
 
+//PADDINGPA
 _resetbindspad.jump = function()
 {
 	input_profile_reset_bindings("gamepad");
@@ -710,20 +623,15 @@ if (room == Titlescreen)
 	
 	with (_datadel.options[0].selections[0])
 	{
-		jump = function(_selected)
-		{
-			with (getfolder())
-				exitfolder(_selected);
+//PADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGP
+		jump = function(_selected){with(getfolder())
+			exitfolder(_selected);
 		};
 	}
 	
 	with (_datadel.options[0].selections[1])
 	{
-		jump = function(_selected)
-		{
-			save_clear();
-			save_delete();
-			scr_fmod_soundeffectONESHOT("event:/sfx/misc/explosion", obj_player.x, obj_player.y);
+		jump = function(_selected){save_clear();save_delete();			scr_fmod_soundeffectONESHOT("event:/sfx/misc/explosion", obj_player.x, obj_player.y);
 			
 			with (other)
 				scr_tiptext(string_get("tips/menu/options/savedatawiped"), -13500, false);
@@ -750,10 +658,8 @@ if (room == Titlescreen)
 	
 	with (_closegame.options[0].selections[0])
 	{
-		jump = function(_selected)
-		{
-			with (getfolder())
-				exitfolder(_selected);
+		jump = function(_selected){with(getfolder())
+			exitfolder(_selected);
 		};
 	}
 	

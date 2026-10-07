@@ -1,7 +1,7 @@
 if (game_paused())
 	exit;
 
-if (state == 0 && obj_player.state == playerstate.dead && (obj_player.sprite_index == spr_player_deadloop || obj_player.sprite_index == spr_player_firedeathloop))
+if (state == 0 && obj_player.state == pstate.dead && (obj_player.sprite_index == spr_player_deadloop || obj_player.sprite_index == spr_player_firedeathloop))
 	state = 1;
 
 if (state == 0)

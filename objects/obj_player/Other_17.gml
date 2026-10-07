@@ -1,12 +1,12 @@
-if (state == playerstate.nitrocutscene || state == playerstate.actor || state == playerstate.statedebug)
+if (state == pstate.nitrocutscene || state == pstate.actor || state == pstate.statedebug)
 	exit;
 
 var _lightcol = make_colour_hsv(colour_get_hue(image_blend), colour_get_saturation(image_blend), colour_get_value(image_blend) * lightlevel);
 var _fallsprcheck = sprite_index == spr_player_jumppeak || sprite_index == spr_player_jumpend || sprite_index == spr_player_fall || sprite_index == spr_player_crouchfall || sprite_index == spr_player_crouchjumpend || sprite_index == spr_player_fallturn || sprite_index == spr_player_crouchfallturn || sprite_index == spr_player_wallslidecancelup || sprite_index == spr_player_wallslidecanceldown || sprite_index == spr_player_cratebounce || sprite_index == spr_player_crouchfallbunny || sprite_index == spr_player_crouchfallbunnyturn || sprite_index == spr_player_wallrunend;
 
-if (state != playerstate.rope)
+if (state != pstate.rope)
 {
-	if (state == playerstate.endplatform && instance_exists(obj_endplatplayer))
+	if (state == pstate.endplatform && instance_exists(obj_endplatplayer))
 	{
 		var _faux = instance_find(obj_endplatplayer, 0);
 		draw_sprite_billboard_ext(_faux.sprite_index, _faux.image_index, _faux.x, _faux.y, z, _faux.image_xscale, 1, 0, _lightcol, image_alpha, true);
@@ -15,7 +15,7 @@ if (state != playerstate.rope)
 	{
 		var _tiltangle = 0;
 		
-		if (state == playerstate.cartwheel)
+		if (state == pstate.cartwheel)
 			_tiltangle = clamp((movespeed - 14) * 10, 0, 15) * -image_xscale;
 		
 		var _yoff = 0;
@@ -23,7 +23,7 @@ if (state != playerstate.rope)
 		_yoff = 40 * abs(angle_difference(0, angle + _tiltangle) / 180);
 		_xoff = (64 * angle_difference(0, angle + _tiltangle)) / 180;
 		
-		if (state == playerstate.Hitstun)
+		if (state == pstate.Hitstun)
 		{
 			_yoff += irandom_range(-3, 3);
 			_xoff += irandom_range(-3, 3);

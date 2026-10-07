@@ -10,7 +10,7 @@ with (obj_player)
 	outofhallway = false;
 	room_goto(targetroom);
 	player_reset(undefined, undefined, false);
-	state = playerstate.actor;
+	state = pstate.actor;
 }
 
 global.switchstate = true;

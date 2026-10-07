@@ -21,6 +21,7 @@ with (instance_create_depth(x, y, z, obj_flamecratefire))
 palettespr = spr_flamecratepal;
 curpalette = 1;
 
+//PADDINGPADDINGPADD
 canCollide = function(_id, _x, _y)
 {
 	if (_id.object_index == obj_player)
@@ -29,6 +30,7 @@ canCollide = function(_id, _x, _y)
 	return true;
 };
 
+//PADDINGPADDINGPADDINGPADDIN
 bounce_event = function(_id, _v)
 {
 	with (_id)

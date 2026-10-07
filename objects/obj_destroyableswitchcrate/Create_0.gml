@@ -4,6 +4,7 @@ z = depth;
 squish = 1;
 hit = false;
 
+//PAD
 canCollide = function(_id, _x, _y)
 {
 	if (_id.object_index == obj_player)
@@ -12,6 +13,7 @@ canCollide = function(_id, _x, _y)
 	return true;
 };
 
+//PADDINGPADDINGPADDINGPADDIN
 bounce_event = function(_id, _v)
 {
 	global.switchstate = !global.switchstate;
@@ -22,8 +24,8 @@ bounce_event = function(_id, _v)
 	{
 		if (_v >= 0)
 		{
-			if (state == playerstate.hurt)
-				state = playerstate.Jump;
+			if (state == pstate.hurt)
+				state = pstate.Jump;
 			
 			cratebounceeffect(_id);
 			player_bounce(input_check("jump") ? -18 : -15);

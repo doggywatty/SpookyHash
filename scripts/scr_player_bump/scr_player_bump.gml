@@ -6,14 +6,14 @@ function scr_player_bump()
 		vsp = 0;
 	
 	if (sprite_animation_end())
-		state = playerstate.normal;
+		state = pstate.normal;
 	
 	image_speed = 0.4;
 	var _dir = input_check_opposing("left", "right");
 	
 	if (input_check_pressed(["jump", "slide", "dash", "attack"]) || (_dir != image_xscale && _dir != 0))
 	{
-		state = playerstate.normal;
+		state = pstate.normal;
 		states[state]();
 		event_stop(splatsnd, false);
 	}

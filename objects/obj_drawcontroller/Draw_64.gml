@@ -91,7 +91,7 @@ if (scr_hudroom())
 	with (obj_player)
 		_touching = place_meeting(x, y, [obj_outhouse, obj_mirror]);
 	
-	if (obj_player.state == playerstate.normal && _touching)
+	if (obj_player.state == pstate.normal && _touching)
 	{
 		var _promptx = _sp[0];
 		var _prompty = _sp[1] - 65;

@@ -29,7 +29,7 @@ function scr_player_levelintro()
 		
 		if (sprite_animation_end())
 		{
-			state = playerstate.normal;
+			state = pstate.normal;
 			vsp = 0;
 		}
 	}

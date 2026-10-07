@@ -6,7 +6,7 @@ function scr_player_sprint()
 		{
 			if (!scr_solid(x, y + 1, [obj_slope, obj_slopePlatform]))
 			{
-				state = playerstate.bump;
+				state = pstate.bump;
 				sprite_index = spr_player_wallsplat;
 				movespeed = 0;
 				vsp = 0;
@@ -16,7 +16,7 @@ function scr_player_sprint()
 			}
 			else
 			{
-				state = playerstate.wall;
+				state = pstate.wall;
 			}
 		}
 	};
@@ -74,7 +74,7 @@ function scr_player_sprint()
 		movespeed = approach(movespeed, 0, 0.5);
 		
 		if (movespeed <= 0)
-			state = playerstate.normal;
+			state = pstate.normal;
 	}
 	
 	if (movespeed > 11 && !onslipperyplat)
@@ -92,7 +92,7 @@ function scr_player_sprint()
 	
 	if (move == -image_xscale)
 	{
-		state = playerstate.machslide;
+		state = pstate.machslide;
 		sprite_index = spr_player_mach2turn;
 		movespeed *= image_xscale;
 		image_index = 0;
@@ -102,14 +102,14 @@ function scr_player_sprint()
 	
 	if (!input_check("dash") && move != image_xscale)
 	{
-		state = playerstate.machslide;
+		state = pstate.machslide;
 		sprite_index = spr_player_machslide;
 		image_index = 0;
 	}
 	
 	if (!input_check("dash") && move == image_xscale)
 	{
-		state = playerstate.normal;
+		state = pstate.normal;
 		momentum = 0;
 	}
 	
@@ -140,13 +140,13 @@ function scr_player_sprint()
 			vsp = -movespeed;
 			sprite_index = spr_player_longjump;
 			jumpstop = 1;
-			state = playerstate.Jump;
+			state = pstate.Jump;
 			image_index = 0;
 			scr_fmod_soundeffect(longjumpsnd, x, y);
 		}
 		else
 		{
-			state = playerstate.sprintjump;
+			state = pstate.sprintjump;
 			
 			if (sprite_index != spr_player_mach2fast)
 				sprite_index = spr_player_mach2fall;

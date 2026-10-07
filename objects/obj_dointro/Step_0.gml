@@ -1,7 +1,7 @@
 if (game_paused())
 	exit;
 
-if (state == 0 && obj_player.state != playerstate.levelintro)
+if (state == 0 && obj_player.state != pstate.levelintro)
 	state = 1;
 
 if (state == 1)

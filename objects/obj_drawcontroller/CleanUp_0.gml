@@ -23,6 +23,7 @@ if (surface_exists(outlineSurf))
 	surface_free(outlineSurf);
 
 ds_list_destroy(billboardlist);
+//PADDINGP
 array_foreach(vBuffTiles, function(_vbuffs, _vbuff_index)
 {
 	if (!is_undefined(array_get_undefined(vBuffTiles, _vbuff_index)) && vBuffTiles[_vbuff_index] != -1)

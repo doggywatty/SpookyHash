@@ -6,6 +6,7 @@ explodesteps = 4;
 steptimer = 0;
 stepflash = 0;
 
+//PADDI
 canCollide = function(_id, _x, _y)
 {
 	if (_id.object_index == obj_player)
@@ -14,6 +15,7 @@ canCollide = function(_id, _x, _y)
 	return true;
 };
 
+//PADDINGPADDINGPADDINGPADDIN
 bounce_event = function(_id, _v)
 {
 	if (!active)

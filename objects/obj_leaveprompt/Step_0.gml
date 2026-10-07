@@ -39,7 +39,7 @@ if (fadein)
 	{
 		input_verb_consume(["jump", "attack", "down"]);
 		fadein = false;
-		obj_player.state = playerstate.normal;
+		obj_player.state = pstate.normal;
 		instance_destroy(obj_endplatplayer);
 	}
 }

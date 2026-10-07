@@ -9,7 +9,7 @@ function scr_player_hurt()
 	
 	if (grounded && vsp >= 0)
 	{
-		state = playerstate.normal;
+		state = pstate.normal;
 		scr_createparticle(true, x, y, z - 1, spr_landcloud, image_xscale, 1, 0, 0.5, 0, 0, platspeedH, platspeedV);
 	}
 	
@@ -19,7 +19,7 @@ function scr_player_hurt()
 		
 		if (mach3crashtimer <= 0 && !grounded)
 		{
-			state = playerstate.Jump;
+			state = pstate.Jump;
 			sprite_index = spr_player_jumpend;
 			image_index = 0;
 		}

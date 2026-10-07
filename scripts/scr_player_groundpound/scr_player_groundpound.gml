@@ -15,6 +15,7 @@ function scr_player_groundpound()
 		}
 	};
 	
+//PADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADD
 	collide_destructibles = function(_h, _v)
 	{
 		scr_destroy_horizontal(_h);
@@ -39,7 +40,7 @@ function scr_player_groundpound()
 		{
 			jumpbuffer = 0;
 			scr_fmod_soundeffect(jumpsnd, x, y);
-			state = playerstate.Jump;
+			state = pstate.Jump;
 			vsp = -15;
 			sprite_index = spr_player_jump;
 			image_index = 0;
@@ -57,13 +58,13 @@ function scr_player_groundpound()
 			if (move != 0)
 				image_xscale = move;
 			
-			if (state == playerstate.Punch)
+			if (state == pstate.Punch)
 				event_stop(punchsnd, 1);
 			
-			if (state == playerstate.cartwheel)
+			if (state == pstate.cartwheel)
 				event_stop(cartwheelsnd, 1);
 			
-			state = playerstate.Downslide;
+			state = pstate.Downslide;
 			scr_createparticle(true, x, y, z + 4, spr_jumpdust, image_xscale);
 			
 			if (grounded)
@@ -85,7 +86,7 @@ function scr_player_groundpound()
 		}
 		
 		if (sprite_animation_end())
-			state = playerstate.normal;
+			state = pstate.normal;
 	}
 	
 	move = input_check_opposing("left", "right");

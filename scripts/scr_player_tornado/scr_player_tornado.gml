@@ -51,7 +51,7 @@ function scr_player_tornado()
 	{
 		jumpbuffer = 0;
 		scr_fmod_soundeffect(jumpsnd, x, y);
-		state = playerstate.Jump;
+		state = pstate.Jump;
 		vsp = -12;
 		sprite_index = spr_player_jump;
 		image_index = 0;
@@ -61,7 +61,7 @@ function scr_player_tornado()
 	}
 	
 	if (tornadoendbuffer <= 0)
-		state = playerstate.normal;
+		state = pstate.normal;
 	
 	if (speedlinesobj == noone)
 		speedlinesobj = instance_create_depth(x, y, z + 1, obj_speedlines);

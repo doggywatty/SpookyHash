@@ -8,14 +8,14 @@ x = lerp(x, (obj_player.image_xscale == 1) ? (obj_player.x - 64) : (obj_player.x
 y = lerp(y, obj_player.y - 16, 0.05);
 image_xscale = -sign(x - obj_player.x);
 
-if (obj_player.state != playerstate.mirror)
+if (obj_player.state != pstate.mirror)
 {
 	z = lerp(z, obj_player.z + 3, 0.05);
 	
 	if (obj_player.hp > 1)
 		visible = obj_player.visible;
 	
-	if (obj_player.state == playerstate.actor)
+	if (obj_player.state == pstate.actor)
 		visible = false;
 	
 	if (obj_player.hp <= 1)

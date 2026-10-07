@@ -9,12 +9,14 @@ open = 0;
 doorClose = -1;
 doorOpen = -1;
 
+//PADDINGPADDING
 interact = function()
 {
 	scr_fmod_soundeffectONESHOT("event:/sfx/misc/dooropen", x + (sprite_width / 2), -25, y);
 	open = 180;
 };
 
+//P
 build = function(_vbuff)
 {
 	var _xstart = (image_xscale < 0) ? bbox_right : bbox_left;

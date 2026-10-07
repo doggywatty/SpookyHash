@@ -10,6 +10,7 @@ function scr_player_downslide()
 		}
 	};
 	
+//
 	collide_destructibles = function(_h, _v)
 	{
 		scr_destroy_horizontal(_h);
@@ -54,24 +55,24 @@ function scr_player_downslide()
 	{
 		if (ceilingcheck)
 		{
-			state = playerstate.crouch;
+			state = pstate.crouch;
 		}
 		else if (grounded)
 		{
 			if (!holdingdown)
 			{
-				state = playerstate.normal;
+				state = pstate.normal;
 			}
 			else
 			{
-				state = playerstate.crouch;
+				state = pstate.crouch;
 				movespeed = clamp(movespeed, 0, 4);
 				exit;
 			}
 		}
 		else if (!input_check("down"))
 		{
-			state = playerstate.Jump;
+			state = pstate.Jump;
 			sprite_index = spr_player_jumpend;
 			image_index = 0;
 		}
@@ -131,7 +132,7 @@ function scr_player_downslide()
 		vsp = -movespeed;
 		sprite_index = spr_player_longjump;
 		jumpstop = 1;
-		state = playerstate.Jump;
+		state = pstate.Jump;
 		image_index = 0;
 		scr_fmod_soundeffect(longjumpsnd, x, y);
 	}

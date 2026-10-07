@@ -3,7 +3,7 @@ if (game_paused())
 
 var _target = (place_meeting(x, y, obj_player) * 2) - 1;
 
-if (obj_player.state == playerstate.endplatform)
+if (obj_player.state == pstate.endplatform)
 	_target = 0;
 
 alpha = approach(alpha, _target, 0.025);

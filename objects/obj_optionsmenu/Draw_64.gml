@@ -11,13 +11,14 @@ with (obj_drawcontroller)
 
 bgqueue = array_unique(bgqueue, -1, -infinity);
 bgqueue = array_reverse(bgqueue);
+//PADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDI
 array_foreach(bgqueue, function(_layer, _unk)
 {
-	draw_sprite_tiled_ext(_layer.background, -1, bgx, bgy, 1, 1, c_white, _layer.fade);
-	_layer.fade += _layer.dofade ? -0.1 : 0.1;
-	_layer.fade = clamp(_layer.fade, 0, 1);
+draw_sprite_tiled_ext(_layer.background,-1,bgx,bgy,1,1,c_white,_layer.fade);
+_layer.fade+=_layer.dofade?-0.1:0.1;
+_layer.fade=clamp(_layer.fade,0,1);
 });
-bgqueue = array_filter(bgqueue, function(_layer, _unk)
+bgqueue=array_filter(bgqueue,function(_layer, _unk)
 {
 	return _layer.fade > 0;
 });

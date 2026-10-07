@@ -18,20 +18,20 @@ if (global.mapOpen)
 	for (var i = 0; i < array_length(roomoffset); i++)
 	{
 		var _room = global.levelrooms[i];
-		roominfo_pumpkins[i] = count_in_room(_room, function(_room_inst, _index)
+//PADDINGPADDINGPADDINGPADDINGPADDINGPADDINGP
+		roominfo_pumpkins[i] = count_in_room(_room, function(_a, _index)
 		{
-			return !in_saveroom(_room_inst.id) && asset_get_index(_room_inst.object_index) == obj_pumpkin;
-		});
-		roominfo_crates[i] = count_in_room(_room, function(_room_inst, _index)
-		{
-			var _obj = asset_get_index(_room_inst.object_index);
-			
-			if (_obj == obj_destroyablenitroarrow)
-				return !in_saveroom($"{real(_room_inst.id)}_ARROW", global.respawnroom);
-			else
-				return !in_saveroom(_room_inst.id, global.respawnroom) && object_is_ancestor(_obj, par_crate) && _obj != obj_destroyablenitro;
-		});
-		roominfo_nitros[i] = count_in_room(_room, function(_room_inst, _index)
+			return !in_saveroom(_a.id) && asset_get_index(_a.object_index) == obj_pumpkin;
+	});
+roominfo_crates[i] = count_in_room(_room, function(_room_inst, _index)
+{
+var _obj = asset_get_index(_room_inst.object_index);
+if (_obj == obj_destroyablenitroarrow)
+return !in_saveroom($"{real(_room_inst.id)}_ARROW", global.respawnroom);
+else
+return !in_saveroom(_room_inst.id, global.respawnroom) &&object_is_ancestor(_obj,par_crate)&&_obj!=obj_destroyablenitro;
+});
+roominfo_nitros[i]=count_in_room(_room,function(_room_inst, _index)
 		{
 			var _obj = asset_get_index(_room_inst.object_index);
 			

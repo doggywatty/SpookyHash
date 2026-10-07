@@ -22,7 +22,7 @@ if (obj_player.move != _swingdir && abs(wavespd) < abs(_swingspd))
 if (obj_player.move != sign(wavespd))
 	_swinging = true;
 
-if (obj_player.move != 0 && obj_player.state == playerstate.rope && obj_player.ropeID == id)
+if (obj_player.move != 0 && obj_player.state == pstate.rope && obj_player.ropeID == id)
 {
 	if (_swinging)
 	{

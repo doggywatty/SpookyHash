@@ -1,4 +1,4 @@
-if (!touch && other.outofhallway && other.state != playerstate.fakewalk && player_collideable())
+if (!touch && other.outofhallway && other.state != pstate.fakewalk && player_collideable())
 {
 	touch = 1;
 	var _doorobj = instance_place(x, y, obj_door);
@@ -22,7 +22,7 @@ if (!touch && other.outofhallway && other.state != playerstate.fakewalk && playe
 			movespeed = 0;
 			hsp = 0;
 			vsp = 0;
-			state = playerstate.fakewalk;
+			state = pstate.fakewalk;
 			sprite_index = choose(spr_player_move, spr_player_tiptoe);
 			fakewalktime = 30;
 			image_xscale = sign(other.image_xscale);

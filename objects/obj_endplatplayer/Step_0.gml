@@ -36,7 +36,7 @@ if (dothing)
 	if (fmod_studio_system_get_parameter_by_name("bringtorank").final_value == 1)
 	{
 		room_goto(sendtojeg ? Jeg : RankRoom);
-		obj_player.state = playerstate.actor;
+		obj_player.state = pstate.actor;
 	}
 }
 else

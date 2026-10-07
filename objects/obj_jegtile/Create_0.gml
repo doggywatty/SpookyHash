@@ -1,6 +1,7 @@
 image_speed = 0;
 height = depth;
 
+//
 build = function(_vbuff)
 {
 	var _xstart = (image_xscale < 0) ? bbox_right : bbox_left;

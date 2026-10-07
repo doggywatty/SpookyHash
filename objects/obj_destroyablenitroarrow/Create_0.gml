@@ -6,6 +6,7 @@ squish = 1;
 palettespr = spr_nitroarrowpal;
 curpalette = hp;
 
+//PADDI
 canCollide = function(_id, _x, _y)
 {
 	if (_id.object_index == obj_player)
@@ -14,6 +15,7 @@ canCollide = function(_id, _x, _y)
 	return true;
 };
 
+//PADDINGPADDINGPADDINGPADDIN
 bounce_event = function(_id, _v)
 {
 	if (_v >= 0)
@@ -22,8 +24,8 @@ bounce_event = function(_id, _v)
 		
 		with (_id)
 		{
-			if (state == playerstate.hurt)
-				state = playerstate.Jump;
+			if (state == pstate.hurt)
+				state = pstate.Jump;
 			
 			player_bounce(input_check("jump") ? -18 : -15);
 		}

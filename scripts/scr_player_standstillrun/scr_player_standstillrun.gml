@@ -10,7 +10,7 @@ function scr_player_standstillrun()
 	
 	if (grounded && vsp >= 0 && move != 0)
 	{
-		state = playerstate.sprint;
+		state = pstate.sprint;
 		turning = 0;
 		sprite_index = spr_player_mach2;
 		image_index = 0;
@@ -28,14 +28,14 @@ function scr_player_standstillrun()
 	{
 		if (grounded && vsp >= 0)
 		{
-			state = playerstate.normal;
+			state = pstate.normal;
 			sprite_index = spr_player_movestop;
 			image_index = 0;
 			movestop = 1;
 		}
 		else
 		{
-			state = playerstate.Jump;
+			state = pstate.Jump;
 			sprite_index = spr_player_fall;
 		}
 	}

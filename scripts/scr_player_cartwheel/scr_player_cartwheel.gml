@@ -3,25 +3,26 @@ function scr_player_cartwheel()
 	hit_horizontal = function(_h)
 	{
 		momentum = 0;
-		
+
 		if (scr_solid(x, y + 1, [obj_slope, obj_slopePlatform]) && grounded && sign(_h) == image_xscale)
 		{
-			state = playerstate.wall;
+			state = pstate.wall;
 		}
 		else
 		{
-			state = playerstate.bump;
+			state = pstate.bump;
 			sprite_index = spr_player_wallsplat;
 			event_stop(tornadosnd, 1);
 			movespeed = 0;
 			vsp = 0;
 			gamepadvibrate(0.3, 0, 3);
 			scr_fmod_soundeffect(splatsnd, x, y);
-			image_index = 0;
-		}
-	};
-	
-	collide_destructibles = function(_h, _v)
+image_index = 0;
+}
+};
+
+//PADDING
+collide_destructibles = function(_h, _v)
 	{
 		scr_destroy_horizontal(_h * 2);
 		
@@ -69,7 +70,7 @@ function scr_player_cartwheel()
 		
 		jumpnum = 1;
 		jumpbuffer = 0;
-		state = playerstate.sprintjump;
+		state = pstate.sprintjump;
 		sprite_index = spr_player_longjump;
 		image_index = 0;
 		jumpstop = 0;
@@ -91,12 +92,12 @@ function scr_player_cartwheel()
 		
 		if (grounded && vsp >= 0)
 		{
-			state = playerstate.sprint;
+			state = pstate.sprint;
 			sprite_index = spr_player_mach2;
 		}
 		else
 		{
-			state = playerstate.sprintjump;
+			state = pstate.sprintjump;
 			sprite_index = spr_player_mach2fall;
 		}
 	}
@@ -115,7 +116,7 @@ function scr_player_cartwheel()
 		dir = image_xscale;
 		sprite_index = spr_player_longjump;
 		jumpstop = 1;
-		state = playerstate.Jump;
+		state = pstate.Jump;
 		image_index = 0;
 	}
 	

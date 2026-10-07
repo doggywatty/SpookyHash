@@ -28,10 +28,10 @@ function scr_hurtplayer(damage = 1, deathtype = playerdeaths.normal, override = 
 		if (global.godmode)
 			return false;
 		
-		if (state == playerstate.Hitstun)
+		if (state == pstate.Hitstun)
 			return false;
 		
-		if (state == playerstate.dead)
+		if (state == pstate.dead)
 			return false;
 		
 		var _hpmul = max(1, damage / 2);
@@ -42,14 +42,14 @@ function scr_hurtplayer(damage = 1, deathtype = playerdeaths.normal, override = 
 			save_easteregg("gatherTheGemsNotTheCrystals");
 		}
 		
-		if ((state != playerstate.hurt && !hurt) || (state != playerstate.hurt && override))
+		if ((state != pstate.hurt && !hurt) || (state != pstate.hurt && override))
 		{
 			var _prevhp = hp;
 			hp = max(hp - damage, 0);
 			
 			if (hp > 0)
 			{
-				state = playerstate.hurt;
+				state = pstate.hurt;
 				hurt = 1;
 				sprite_index = choose(spr_player_hurt, spr_player_hurt2);
 				movespeed = -2 * mvspeed;
@@ -78,14 +78,14 @@ function scr_hurtplayer(damage = 1, deathtype = playerdeaths.normal, override = 
 				{
 					case playerdeaths.firedeath:
 						scr_fmod_soundeffectONESHOT("event:/sfx/player/firedeath", x, y);
-						state = playerstate.dead;
+						state = pstate.dead;
 						sprite_index = spr_player_firedeath;
 						image_index = 0;
 						instance_create_depth(x, y, -12500, obj_deathtransition2);
 						gamepadvibrate(0.4, 0, 35);
 						break;
 					case playerdeaths.normal:
-						state = playerstate.dead;
+						state = pstate.dead;
 						sprite_index = spr_player_dead;
 						image_index = 0;
 						instance_create_depth(x, y, -12500, obj_deathtransition2);
@@ -93,7 +93,7 @@ function scr_hurtplayer(damage = 1, deathtype = playerdeaths.normal, override = 
 						gamepadvibrate(0.2, 0, 20);
 						break;
 					case playerdeaths.gibdeath:
-						state = playerstate.dead;
+						state = pstate.dead;
 						sprite_index = spr_player_nothing;
 						image_index = 0;
 						
@@ -169,7 +169,7 @@ function hitstun(_time)
 	{
 		player_save_state();
 		hitstuntime = _time;
-		state = playerstate.Hitstun;
+		state = pstate.Hitstun;
 	}
 	
 	with (par_enemy)
@@ -188,7 +188,7 @@ function player_reset(_restart_music = true, _restart_level = true, _restart_HUD
 		image_xscale = 1;
 		visible = true;
 		image_alpha = 1;
-		state = playerstate.normal;
+		state = pstate.normal;
 		afterimagetime = 0;
 		mach4mode = 0;
 		dir = image_xscale;
@@ -395,7 +395,7 @@ function on_slippery_slope()
 
 function player_collideable()
 {
-	return !(obj_player.state == playerstate.noclip || obj_player.state == playerstate.levelintro || obj_player.state == playerstate.dead || obj_player.state == playerstate.statedebug || obj_player.ondeathplatform != noone || obj_player.state == playerstate.falllocked || obj_player.state == playerstate.endplatform || obj_player.state == playerstate.nitrocutscene || obj_player.state == playerstate.outhouse);
+	return !(obj_player.state == pstate.noclip || obj_player.state == pstate.levelintro || obj_player.state == pstate.dead || obj_player.state == pstate.statedebug || obj_player.ondeathplatform != noone || obj_player.state == pstate.falllocked || obj_player.state == pstate.endplatform || obj_player.state == pstate.nitrocutscene || obj_player.state == pstate.outhouse);
 }
 
 function player_bounce(_height)
@@ -418,16 +418,16 @@ function player_bounce(_height)
 		
 		hovertime = 0;
 		
-		if (state == playerstate.Downslide || state == playerstate.groundpound || state == playerstate.standstillrun)
-			state = playerstate.Jump;
+		if (state == pstate.Downslide || state == pstate.groundpound || state == pstate.standstillrun)
+			state = pstate.Jump;
 		
-		if (state == playerstate.sprint || state == playerstate.machslide)
-			state = playerstate.sprintjump;
+		if (state == pstate.sprint || state == pstate.machslide)
+			state = pstate.sprintjump;
 		
-		if (state == playerstate.Jump || state == playerstate.sprintjump)
+		if (state == pstate.Jump || state == pstate.sprintjump)
 			sprite_index = spr_player_cratebounce;
 		
-		if (state != playerstate.cartwheel && state != playerstate.Punch)
+		if (state != pstate.cartwheel && state != pstate.Punch)
 			image_index = 0;
 		
 		if (instance_exists(obj_playercape))
@@ -435,7 +435,7 @@ function player_bounce(_height)
 	}
 	else
 	{
-		if (state == playerstate.Jump)
+		if (state == pstate.Jump)
 		{
 			if (sprite_index == spr_player_longjump || sprite_index == spr_player_longjumpend)
 				sprite_index = spr_player_longjumpend;
@@ -445,13 +445,13 @@ function player_bounce(_height)
 				sprite_index = spr_player_jumpend;
 		}
 		
-		if (state == playerstate.Downslide)
+		if (state == pstate.Downslide)
 		{
-			state = playerstate.Jump;
+			state = pstate.Jump;
 			sprite_index = spr_player_longjumpend;
 		}
 		
-		if (state == playerstate.sprint || state == playerstate.sprintjump)
+		if (state == pstate.sprint || state == pstate.sprintjump)
 		{
 			if (sprite_index == spr_player_longjump || sprite_index == spr_player_longjumpend)
 				sprite_index = spr_player_longjumpend;

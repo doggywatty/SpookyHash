@@ -1,6 +1,7 @@
 depth += 4;
 z = depth;
 lightlevel = 1;
+//PADDINGP
 do_specific(function()
 {
 	var _pumpkins = string_get("pumpkins");

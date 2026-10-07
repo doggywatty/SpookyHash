@@ -157,7 +157,7 @@ function scr_player_normal()
 	{
 		if (input_check("dash"))
 		{
-			state = playerstate.standstillrun;
+			state = pstate.standstillrun;
 			movestop = 0;
 			landanim = 0;
 			sprite_index = spr_player_runinplacestart;
@@ -167,7 +167,7 @@ function scr_player_normal()
 		if (input_check("slide"))
 		{
 			slidebuffer = 0;
-			state = playerstate.crouch;
+			state = pstate.crouch;
 			sprite_index = spr_player_crouchstart;
 		}
 	}
@@ -212,15 +212,15 @@ function scr_player_normal()
 		}
 		
 		jumpstop = 1;
-		state = playerstate.Jump;
+		state = pstate.Jump;
 		image_index = 0;
 	}
 	
 	attack();
 	
-	if (input_check("dash") && state == playerstate.normal && move != 0 && !scr_solid(x + move, y, [obj_solid, obj_oneWayWall]))
+	if (input_check("dash") && state == pstate.normal && move != 0 && !scr_solid(x + move, y, [obj_solid, obj_oneWayWall]))
 	{
-		state = playerstate.sprint;
+		state = pstate.sprint;
 		turning = 0;
 		
 		if (movespeed <= 8)

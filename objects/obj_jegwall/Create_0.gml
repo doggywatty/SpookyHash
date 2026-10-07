@@ -1,5 +1,5 @@
 image_speed = 0;
-
+//
 canCollide = function(_id, _x, _y)
 {
 	return true;
@@ -7,6 +7,7 @@ canCollide = function(_id, _x, _y)
 
 height = depth;
 
+//PADDINGPAD
 build = function(_vbuff)
 {
 	if (left_tex != noone)

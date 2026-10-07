@@ -41,7 +41,7 @@ mouse_yprev = device_mouse_y_to_gui(0);
 var _px = obj_player.x;
 var _py = obj_player.y;
 
-if (obj_player.state == playerstate.rope)
+if (obj_player.state == pstate.rope)
 {
 	_px = obj_player.ropeID.x;
 	_py = obj_player.ropeID.y + obj_player.ropeID.sprite_height;
@@ -63,7 +63,7 @@ if (!debugcam)
 	if (room != Jeg)
 		window_mouse_set_locked(false);
 	
-	var _lockcond = obj_player.state != playerstate.falllocked && !(obj_player.state == playerstate.platformlocked && obj_player.sprite_index != spr_player_platformhop);
+	var _lockcond = obj_player.state != pstate.falllocked && !(obj_player.state == pstate.platformlocked && obj_player.sprite_index != spr_player_platformhop);
 	
 	if (_lockcond)
 		camX = _px + camForward;
@@ -93,14 +93,14 @@ if (!debugcam)
 	{
 		camY = _py;
 		
-		if (obj_player.state == playerstate.levelintro)
+		if (obj_player.state == pstate.levelintro)
 			camY = obj_player.levelstarty;
 		
 		camY += (camVerticalPan + camUp);
 		camY -= 30;
 	}
 	
-	if (obj_player.state == playerstate.nitrocutscene)
+	if (obj_player.state == pstate.nitrocutscene)
 	{
 		var _scene = obj_nitrodetonatorcutscene;
 		camX = _scene.nitrox + (_scene.nitrow / 2);
@@ -148,17 +148,17 @@ if (!debugcam)
 	var _prelockX = camX;
 	var _prelockY = camY;
 	
-	if (obj_player.state != playerstate.noclip)
+	if (obj_player.state != pstate.noclip)
 	{
 		with (obj_player)
 		{
 			var _meetx = x;
 			var _meety = y;
 			
-			if (state == playerstate.levelintro)
+			if (state == pstate.levelintro)
 				_meety = levelstarty;
 			
-			if (state == playerstate.nitrocutscene)
+			if (state == pstate.nitrocutscene)
 			{
 				var _scene = obj_nitrodetonatorcutscene;
 				_meetx = _scene.nitrox + (_scene.nitrow / 2);
@@ -168,7 +168,7 @@ if (!debugcam)
 			other.curlock = noone;
 			other.curlockbboxdata = [];
 			
-			if (player_collideable() || state == playerstate.endplatform || state == playerstate.dead || state == playerstate.levelintro || state == playerstate.outhouse || state == playerstate.platformlocked)
+			if (player_collideable() || state == pstate.endplatform || state == pstate.dead || state == pstate.levelintro || state == pstate.outhouse || state == pstate.platformlocked)
 			{
 				var _lockid = instance_place(_meetx, _meety, par_camlock);
 				
@@ -261,14 +261,14 @@ listener_setPosition(0, camX, camY, camZ);
 
 if (!game_paused())
 {
-	if (obj_player.state != playerstate.Hitstun && obj_player.state != playerstate.actor)
+	if (obj_player.state != pstate.Hitstun && obj_player.state != pstate.actor)
 	{
 		if (floor(abs(obj_player.hsp)) != 0)
 			camForward = approach(camForward, 100 * sign(obj_player.hsp), 2.5);
 		else
 			camForward = approach(camForward, 0, 1.5);
 		
-		if (obj_player.state == playerstate.wall && floor(abs(obj_player.vsp)) != 0)
+		if (obj_player.state == pstate.wall && floor(abs(obj_player.vsp)) != 0)
 			camUp = approach(camUp, 50 * sign(obj_player.vsp), 2.5);
 		else
 			camUp = approach(camUp, 0, 1.5);

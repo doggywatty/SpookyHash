@@ -9,7 +9,7 @@ if (game_paused())
 	exit;
 }
 
-if (place_meeting(x, y, obj_player) && (player_collideable() || obj_player.state == playerstate.outhouse) && !(obj_player.state == playerstate.outhouse && obj_player.sprite_index == spr_player_turnaround))
+if (place_meeting(x, y, obj_player) && (player_collideable() || obj_player.state == pstate.outhouse) && !(obj_player.state == pstate.outhouse && obj_player.sprite_index == spr_player_turnaround))
 {
 	doorswing = min(doorswing + 0.05, 1);
 	closesnd = 0;
@@ -20,14 +20,14 @@ if (place_meeting(x, y, obj_player) && (player_collideable() || obj_player.state
 		scr_fmod_soundeffectONESHOT("event:/sfx/misc/outhouseopen", x, y);
 	}
 	
-	if (input_check_pressed("up") && obj_player.state == playerstate.normal)
+	if (input_check_pressed("up") && obj_player.state == pstate.normal)
 	{
 		with (obj_player)
 		{
 			outhousestartx = x;
 			outhousestarty = y;
 			outhousegoin = true;
-			state = playerstate.outhouse;
+			state = pstate.outhouse;
 			image_index = 0;
 			sprite_index = spr_player_platformhop;
 		}

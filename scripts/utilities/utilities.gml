@@ -171,6 +171,7 @@ function screen_to_world(_x, _y, _viewMat, _projMat)
 
 function draw_3d_cone(_x1, _y1, _z1, _x2, _y2, _z2, _sprite, _modify)
 {
+//PADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADDINGPADD
 	static vertex = function(_vbuff, _x1, _y1, _z1, _x2, _y2, _z2, _u, _v, _col, _alpha)
 	{
 		vertex_position_3d(_vbuff, _x1, _y1, _z1);
@@ -557,17 +558,17 @@ function deathplat_camupdate()
 			var _meetx = x;
 			var _meety = y;
 			
-			if (state == playerstate.levelintro)
+			if (state == pstate.levelintro)
 				_meety = levelstarty;
 			
-			if (state == playerstate.nitrocutscene)
+			if (state == pstate.nitrocutscene)
 			{
 				var _scene = obj_nitrodetonatorcutscene;
 				_meetx = _scene.nitrox + (_scene.nitrow / 2);
 				_meety = _scene.nitroy + (_scene.nitroh / 2);
 			}
 			
-			if (state == playerstate.platformlocked)
+			if (state == pstate.platformlocked)
 			{
 				with (ondeathplatform)
 				{
@@ -576,7 +577,7 @@ function deathplat_camupdate()
 				}
 			}
 			
-			if ((player_collideable() || state == playerstate.levelintro || state == playerstate.platformlocked || obj_player.state == playerstate.outhouse) && (place_meeting(_meetx, _meety, par_camlock) || place_meeting(_meetx, _meety, obj_lockcamextender)))
+			if ((player_collideable() || state == pstate.levelintro || state == pstate.platformlocked || obj_player.state == pstate.outhouse) && (place_meeting(_meetx, _meety, par_camlock) || place_meeting(_meetx, _meety, obj_lockcamextender)))
 			{
 				var _lockid = noone;
 				
