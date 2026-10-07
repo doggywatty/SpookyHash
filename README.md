@@ -41,8 +41,3 @@ This project is an unofficial, non-commercial reverse-engineering and decompilat
 
 All intellectual property, source code logic, art assets, and characters from *NHB* belong entirely to PTPTeam Jr. No copyright infringement is intended.
 > Disclamer taken from [EXtracted](https://github.com/setupwitch/Pizza-Tower-EXtracted).
-
----
-
-## Notes
-ptp_textrendering fails to decompile so i had to rely on [UndertaleModCli](https://github.com/UnderminersTeam/UndertaleModTool/tree/master/UndertaleModCli) and [OpenNHB](https://github.com/dummyguy360/OpenNHB), so sorry if it doesnt match.
