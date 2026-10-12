@@ -97,12 +97,12 @@ if ((openanim + closeanim) > 0)
 					var _sw = surface_get_width(map_surf[_s]);
 					var _sh = surface_get_height(map_surf[_s]);
 					surface_set_target(map_surf[_s]);
-					matrix_set(2, matrix_build(((_sw / 2) - _xoff) + _map_off[_s][0], ((_sh / 2) - _yoff) + _map_off[_s][1], 0, 0, 0, 0, _scale, _scale, 1));
+					matrix_set(matrix_world, matrix_build(((_sw / 2) - _xoff) + _map_off[_s][0], ((_sh / 2) - _yoff) + _map_off[_s][1], 0, 0, 0, 0, _scale, _scale, 1));
 					vertex_submit(vBuffMap[_i], pr_trianglelist, -1);
 					surface_reset_target();
 				}
 				
-				matrix_set(2, matrix_build_identity());
+				matrix_set(matrix_world, matrix_build_identity());
 				shader_set(shd_premultiply);
 			}
 		}

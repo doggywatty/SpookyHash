@@ -38,11 +38,11 @@ if (_len > 0)
 	for (var _i = 0; _i < _len && toshadow[_i] != -4; _i++)
 	{
 		var _shadow = toshadow[_i];
-		matrix_set(2, matrix_build(_shadow.x, _shadow.y, _shadow.depth, 0, 180, _shadow.angle, -_shadow.size, -_shadow.size, _shadow.size / 2));
+		matrix_set(matrix_world, matrix_build(_shadow.x, _shadow.y, _shadow.depth, 0, 180, _shadow.angle, -_shadow.size, -_shadow.size, _shadow.size / 2));
 		vertex_submit(vBuffShadow, pr_trianglelist, shadowTex[_shadow.index]);
 	}
 	
-	matrix_set(2, matrix_build_identity());
+	matrix_set(matrix_world, matrix_build_identity());
 	shader_reset();
 }
 

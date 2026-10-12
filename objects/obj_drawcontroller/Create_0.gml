@@ -363,7 +363,7 @@ function draw_assets()
 	for (var i = 0; i < array_length(assetLayers); i++)
 	{
 		var _l = assetLayers[i];
-		matrix_set(2, matrix_build(0, 0, _l.depth, 0, 0, 0, 1, 1, 1));
+		matrix_set(matrix_world, matrix_build(0, 0, _l.depth, 0, 0, 0, 1, 1, 1));
 		
 		for (var b = 0; b < array_length(_l.elements); b++)
 		{
@@ -372,7 +372,7 @@ function draw_assets()
 			draw_sprite_ext(_e.sprite, layer_sprite_get_index(_e.element), _e.x, _e.y, _e.xscale, _e.yscale, _e.angle, _clr, _e.alpha);
 		}
 		
-		matrix_set(2, matrix_build_identity());
+		matrix_set(matrix_world, matrix_build_identity());
 	}
 	
 	gpu_pop_state();

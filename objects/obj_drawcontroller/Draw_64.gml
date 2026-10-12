@@ -208,7 +208,7 @@ if (outlineDebug)
 {
 	with (obj_jegplayer)
 	{
-		matrix_set(2, matrix_build(-x + (_gw / 2), -y + (_gh / 2), 0, 0, 0, 0, 1, 1, 1));
+		matrix_set(matrix_world, matrix_build(-x + (_gw / 2), -y + (_gh / 2), 0, 0, 0, 0, 1, 1, 1));
 		
 		with (obj_jegtile)
 		{
@@ -230,6 +230,6 @@ if (outlineDebug)
 		
 		draw_self();
 		draw_sprite_ext(spr_1x1, 0, x, y, cursorrange, 1, yaw, c_red, 1);
-		matrix_set(2, matrix_build_identity());
+		matrix_set(matrix_world, matrix_build_identity());
 	}
 }
