@@ -30,7 +30,7 @@ if (global.outlines)
 	gpu_set_zwriteenable(true);
 	gpu_set_ztestenable(true);
 	gpu_set_blendenable(false);
-	gpu_set_cullmode(2);
+	gpu_set_cullmode(cull_counterclockwise);
 	surface_set_target(outlineSurf);
 	draw_clear_alpha(c_black, 0);
 	surface_reset_target();
@@ -56,8 +56,8 @@ if (global.outlines)
 	gpu_set_zwriteenable(false);
 	gpu_set_ztestenable(false);
 	gpu_set_blendenable(true);
-	matrix_set(0, view2D);
-	matrix_set(1, proj2D);
+	matrix_set(matrix_view, view2D);
+	matrix_set(matrix_projection, proj2D);
 	shader_set(shd_3doutline);
 	texture_set_stage(outlineMask, _mask);
 	shader_set_uniform_f(outlineTexel, _tW, _tH);
@@ -74,7 +74,7 @@ else
 	
 	gpu_push_state();
 	gpu_set_blendenable(false);
-	gpu_set_cullmode(2);
+	gpu_set_cullmode(cull_counterclockwise);
 	draw_assets();
 	draw_tiles();
 	draw_models();

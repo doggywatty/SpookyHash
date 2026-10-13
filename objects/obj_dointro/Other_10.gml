@@ -12,8 +12,8 @@ with (obj_drawcontroller)
 	
 	gpu_push_state();
 	gpu_set_zwriteenable(false);
-	matrix_set(0, view2D);
-	matrix_set(1, proj2D);
+	matrix_set(matrix_view, view2D);
+	matrix_set(matrix_projection, proj2D);
 	
 	if (_rad > 0)
 	{

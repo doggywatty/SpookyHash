@@ -358,7 +358,7 @@ function draw_models()
 function draw_assets()
 {
 	gpu_push_state();
-	gpu_set_cullmode(0);
+	gpu_set_cullmode(cull_noculling);
 	
 	for (var i = 0; i < array_length(assetLayers); i++)
 	{

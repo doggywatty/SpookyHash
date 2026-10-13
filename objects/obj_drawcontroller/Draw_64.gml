@@ -49,7 +49,7 @@ if (scr_hudroom())
 	draw_clear_alpha(c_black, 0);
 	gpu_set_ztestenable(true);
 	var _prevcull = gpu_get_cullmode();
-	gpu_set_cullmode(2);
+	gpu_set_cullmode(cull_counterclockwise);
 	shader_set(shd_gemshading_gui);
 	shader_set_uniform_f(u_colour, 0.7, 0.7, 0.75);
 	shader_set_uniform_f(u_light, global.worldlightpos.x, global.worldlightpos.y, global.worldlightpos.z);

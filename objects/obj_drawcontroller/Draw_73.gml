@@ -1,5 +1,5 @@
 gpu_push_state();
-gpu_set_cullmode(2);
+gpu_set_cullmode(cull_counterclockwise);
 var _objects = [obj_cratecounter, par_gem];
 var _num = collision_circle_list(camX, camY, max(global.maxscreenwidth, global.maxscreenheight), _objects, false, true, global.instancelist, false);
 
