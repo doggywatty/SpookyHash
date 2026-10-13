@@ -18,7 +18,7 @@ for (var i = 0; i < array_length(_layers); i++)
 		
 		for (var b = 0; b < array_length(_elements); b++)
 		{
-			if (layer_get_element_type(_elements[b]) == 4)
+			if (layer_get_element_type(_elements[b]) == layerelementtype_sprite)
 			{
 				var _colour = layer_sprite_get_blend(_elements[b]);
 				array_push(_elementarr, 
